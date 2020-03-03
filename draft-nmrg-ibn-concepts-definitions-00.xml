@@ -13,7 +13,7 @@
 <?rfc tocompact="yes"?>
 
 
-<rfc category="info" docName="draft-irtf-nmrg-ibn-concepts-definitions-00" ipr="trust200902">
+<rfc category="info" docName="draft-irtf-nmrg-ibn-concepts-definitions-01" ipr="trust200902">
 
 <front>
 <title abbrev="">Intent-Based Networking - Concepts and Definitions</title>
@@ -69,7 +69,7 @@
 		<email>jefftant.ietf@gmail.com</email>
 	</address>
 </author>
-<date month="December" year="2019" />
+<date month="March" year="2020" />
 
 <abstract>
 	<t>
@@ -137,8 +137,9 @@
     <t>Intent: An abstracted, declarative and vendor agnostic set of rules used to provide full lifecycle (Design/Build/Deploy/Validate) to a network and services it provides.</t>
 	<t>Policy: A rule, or set of rules, that governs the choices in behavior of a system.</t>
     <t>SSoT: Single Source of Truth - A functional block in an IBN system that normalizes user' intent and serves as the single source of data for the lower layers.</t>
-    <t>IBA: Intent Based Analytics - Analytics that are defined and derived from user' intent and used to validate the intended state.</t>
-    <t>IBS: Intent Based System.</t>
+    <t>IBA: Intent Based Analytics - Analytics that are defined and derived from user' intent and used to validate the intended state</t>
+    <t>IBN: Intent Based Network</t>
+    <t>IBS: Intent Based System</t>
     <t>PDP: Policy Decision Point</t>
     <t>PEP: Policy Enforcement Point</t>
     <t>Service Model: A model that represents a service that is provided by a network to a user.</t>
@@ -339,7 +340,7 @@ not just automation of steps that need to be taken, but of bridging the semantic
 Context: multi providers, need discovery and semantic descriptions
 Explainability: why is a network doing what it is doing
 </t>
-<t>Abstraction - users do not need to be concerned with how intent is achieved</t>
+<t>Abstraction.  Users do not need to be concerned with how intent is achieved  and are empowered to think in terms of outcomes.  In addition, they do can refer to concepts at a higher level of abstractions, independent e.g. of vendor-specific renderings.  </t>
 </list></t>
 <t> Additional principles will be described in future revision of this document addressing aspects such as: Target groups not individual devices, agnostic to implementation details, user-friendly, user vocabulary vs. language of the device/network, 
 explainability, validation and troubleshooting, how to resolve and point out conflicts (between intents), reconcile the reality of what is possible with the fiction of what the user would want, "moderate", awareness of operating within system boundaries, 
@@ -349,41 +350,59 @@ outcome-driven ((what not how, for the user);(what and how/where, for the operat
 
 </section>
 
+
+
+<section title="Intent-Based Networking - Functionality" anchor="Functionality">
+<t>
+Intent-Based Networking involves a wide variety of functions which can be roughly divided into two categories:
+<list style="symbols">
+<t>Intent Fulfillment provides functions and interfaces that allow users to communicate intent to the network, and that performes the necessary actions to ensure that intent is achieved.  This includes algorithms to determine proper courses of action and functions that learn to optimize outcomes over time.  In addition, it also includes more traditional functions such as any required orchestration of coordinated configuration operations across the network and rendering of higher-level abstractions into lower-level parameters and control knobs.    
+</t>
+<t>Intent Assurance provides functions and interfaces that allow users to validate and monitor that the network is indeed adhering to and complying with intent.  This is necessary to assess the effectiveness of actions taken as part of fulfillment, providing important feedback that allows those functions to be trained or tuned over time to optimize outcomes.  In addition, Intent Assurance is necessary to address "intent drift".  Intent drift occurs when a system originally meets the intent, but over time gradually allows its behavior to change or be affected until it no longer does, or does so in a less effective manner.  
+</t>
+</list>
+</t>
+<t>
+The following sections provide a more comprehensive overview of those functions. 
+</t>
+<section title="Intent Fulfillment">
+<t>Intent fulfillment is concerned with the functions that take intent from its origination by a user (generally, an administrator of the responsible organization) to its realization in the network.  This includes: 
+<list style="symbols">
+<t>Functions that recognize intent from interaction with the user and functions that allow users to refine their intent and articulate it in such ways so that it becomes actionable by an Intent-Based System.  
+Those functions can involve unconventional human-machine interactions, in which a human will not simply give simple commands, but which may involve a human-machine dialog to provide clarifications, to explain ramifications and tradeoffs, and to facilitate refinements. </t>
+
+<t>Functions that translate user intent into courses of actions and requests to take against the network, which will be meaningful to network configuration and provisioning systems.  As an option,those functions can be complemented with functions and algorithms that optimize the courses of actions and that are able to learn and improve over time in order to result in the best outcomes, specifically in cases where multiple ways of achieving those outcomes are conceivable.  </t>
+
+<t>Functions that perform and orchestrate the configuration and provisioning steps that were determined by the previous intent translation step. </t>
+</list>
+</t>
+ 
+</section>
+
+<section title="Intent Assurance">
+<t>Assurance is concerned with the functions that are necessary ensure that the network indeed complies with the desired intent once it has been fulfilled.  This includes:
+<list style="symbols">
+<t>Functions that monitor and observe the network and its exhibited behavior. </t>
+<t>Functions that assess and validate whether the observation indicate compliance with intent, and that recognize intent drift.  This can include functions that perform analysis and aggregation of raw observation data. 
+<vspace blankLines='2'/>
+Intent drift can be caused by control plane or lower-level management operations that inadvertently cause behavior changes which conflict with intent which was orchestrated earlier.  Intent-Based Systems and Networks need to be able to detect when such drift occurs or is about to occur.  
+</t>
+<t>Functions that trigger corrective action as needed. This includes actions needed to resolve intent drift and bring the network back into compliance.   Alternatively and where necessary, reporting functions need to be triggered that alert operators and provide them with the necessary information and tools to react appropriately, e.g. by helping them articulate modifications to the original intent to moderate between conflicting concerns.</t>  
+<t>Functions that abstract the observations and analysis results in a way that makes it possible for users to relate them to intent.  In many cases, lower-level concepts such as detailed performance statistics and observations related to low-level settings need to be "up-leveled" to concepts the user can relate to and take action on.</t>
+<t>Functions that report intent compliance status and that provide adequate summarization and visualization to the user.</t>
+</list>
+</t>
+</section>
+</section>
+
 <section title="Lifecycle">
 
 <t>
 Intent is subject to a lifecycle: it comes into being, may undergo changes over the course of time, and may at some point be retracted.  This lifecycle is closely tied to various interconnection functions that are associated with the intent concept.
 </t>
-
-<t><xref target="Fig_Lifecycle"/> depicts an intent lifecycle and its main functions.  The functions are divided into two functional (horizontal) planes and into three (vertical) spaces.
+<t><xref target="Fig_Lifecycle"/> depicts an intent lifecycle and its main functions.  The functions were introduced in <xref target="Functionality"/> and are divided into two functional (horizontal) planes, reflecting the distinction between fulfillment and assurance.  In addition, they are divided into three (vertical) spaces.
 </t>
 
-<t>The functional planes provide structure for the main funcional concerns that are associated with intent: how to fulfill intent, and how to assure it.
-
-<list style="symbols">
-<t>Fulfillment is concerned with the functions that take intent from its origination by a user (generally, an administrator of the responsible organization) to its realization in the network.  This includes: 
-<list style="symbols">
-<t>Functions that recognize intent from interaction with the user and functions that allow users to refine their intent and articulate it in such ways so that it becomes actionable by an Intent-Based System.  
-Those functions can involve unconventional human-machine interactions, in which a human will not simply give simple commands, but which may involve a human-machine dialog to provide clarifications, to explain ramifications and tradeoffs, and to facilitate refinements. </t>
-
-<t>Functions that translate user intent into courses of actions and requests to take against the network, which will be meaningful to network configuration and provisioning systems.  
-Possibly, this includes learning functions and algorithms that optimize the courses of actions to take in order to result in the best outcomes, specifically in cases where multiple ways of achieving those outcomes are conceivable.  </t>
-
-<t>Functions that perform and orchestrate the configuration and provisioning steps that were determined by the previous intent translation step. </t>
-</list>
-</t>
-
-<t>Assurance is concerned with the functions that are necessary ensure that the network indeed complies with the desired intent once it has been fulfilled.  This includes:
-<list style="symbols">
-<t>Functions that monitor and observe the network and its exhibited behavior. </t>
-<t>Functions that assess and validate whether the observation indicate compliance with intent.  This can include functions that perform analysis and aggregation of raw observation data. </t>
-<t>Functions that trigger corrective action as needed. </t>  
-<t>Functions that abstract the observations and analysis results in a way that makes it possible for users to relate them to intent.  In many cases, lower-level concepts such as detailed performance statistics and observations related to low-level settings need to be "up-leveled" to concepts the user can relate to and take action on.</t>
-<t>Functions that report intent compliance status and that provide adequate summarization and visualization to the user.</t>
-</list>
-</t>
-</list>
-</t>
 <t>The spaces indicate the different perspectives and interactions with different roles that are involved to address the functions:
 <list style="symbols">
 <t>
@@ -399,21 +418,21 @@ The Network Operations space, finally, involves the traditional orchestration, c
 <artwork>
 <![CDATA[
 
-         User Space   :       Translation / IBS        :   Network Ops
-                      :            Space               :       Space
+         User Space   :       Translation / IBS        :  Network Ops
+                      :            Space               :     Space
                       :                                :
-        +---------+   :  +----------+   +-----------+  :   +---------+
-Fulfill |recognize| ---> |translate/|-->|learn/plan/| ---> | config/ |
-        |intent   | <--- |  refine  |   |  render   |  :   |provision|
-        +----^----+   :  +----------+   +-----^-----+  :   +---------+
-             |        :                       |        :         |
-.............|................................|..................|.....
-             |        :                  +----+---+    :         v
-             |        :                  |validate|    :   +----------+
-             |        :                  +----^---+ <------| monitor/ |
-Assure   +---+---+    :  +---------+    +-----+---+    :   | observe/ |
-         |report | <---- |abstract |<---| analyze | <------|  assure  |
-         +-------+    :  +---------+    |aggregate|    :   +----------+
+        +---------+   :  +----------+   +-----------+  :  +---------+
+Fulfill |recognize| ---> |translate/|-->|learn/plan/| --> | config/ |
+        |intent   | <--- |  refine  |   |  render   |  :  |provision|
+        +----^----+   :  +----------+   +-----^-----+  :  +---------+
+             |        :                       |        :        |
+.............|................................|.................|....
+             |        :                  +----+---+    :        v
+             |        :                  |validate|    : +----------+
+             |        :                  +----^---+ <----| monitor/ |
+Assure   +---+---+    :  +---------+    +-----+---+    : | observe/ |
+         |report | <---- |abstract |<---| analyze | <----|  assure  |
+         +-------+    :  +---------+    |aggregate|    : +----------+
                       :                 +---------+    :
 ]]>
 </artwork>
@@ -434,46 +453,45 @@ When inspecting the diagram carefully, it become apparent that the intent lifecy
 <![CDATA[
 
 
-        user related                    user data <-----<-+--------+
-        data  +                          +                |        |
-              |                          |                |        |
-         +----v------+             +-----v-----+          |        |
-         | recognize +---+   +-----+ generate  |          |        |
-   user  +-----------+   |   |     +-----------+          |        |
-   space                 |   |                            |        |
-+--------------------------------------------------------------------+
-   system                |   |                            |        |
-   space             +---v---v---+   +----------+   +-----+-----+  |
-                     | translate <-->+ validate <---> recommend |  |
-                     +-----+-----+   +----------+   +-----------+  |
-                           |                                       |
-                     +-----v-----+                                 |
-                     | normalize |                                 |
-                     +-----+-----+                                 |
-                           |                                       |
-                     +-----v-----+                                 |
-                     | decompose |                                 |
-                     +-----+-----+                                 |
-                           |                                       |
-                    +------v------+                                |
-                    | communicate |                                |
-                    +------+------+                                |
-    preparation            |                                       |
-    phase                  |                                       |
- +-------------------------------------------------------------------+
-    operation              |                                       |
-    phase            +-----v----+                                  |
-                     | fullfill |                                  |
-                     +-----+----+                                  |
-                           |                                       |
-                      +----v----+     +--------+                   |
-                      | observe +-----> report +-------------------+
-                      +----+----+     +--------+
-                           |
-                      +----v---+
-                      | assure |
-                      +--------+
-
+       user related                    user data <-----<-+--------+
+       data  +                          +                |        |
+             |                          |                |        |
+        +----v------+             +-----v-----+          |        |
+        | recognize +---+   +-----+ generate  |          |        |
+  user  +-----------+   |   |     +-----------+          |        |
+  space                 |   |                            |        |
++------------------------------------------------------------------+
+  system                |   |                            |        |
+  space             +---v---v---+   +----------+   +-----+-----+  |
+                    | translate <-->+ validate <---> recommend |  |
+                    +-----+-----+   +----------+   +-----------+  |
+                          |                                       |
+                    +-----v-----+                                 |
+                    | normalize |                                 |
+                    +-----+-----+                                 |
+                          |                                       |
+                    +-----v-----+                                 |
+                    | decompose |                                 |
+                    +-----+-----+                                 |
+                          |                                       |
+                   +------v------+                                |
+                   | communicate |                                |
+                   +------+------+                                |
+   preparation            |                                       |
+   phase                  |                                       |
++------------------------------------------------------------------+
+   operation              |                                       |
+   phase            +-----v----+                                  |
+                    | fullfill |                                  |
+                    +-----+----+                                  |
+                          |                                       |
+                     +----v----+     +--------+                   |
+                     | observe +-----> report +-------------------+
+                     +----+----+     +--------+
+                          |
+                     +----v---+
+                     | assure |
+                     +--------+
 
 ]]>
 </artwork>
@@ -482,32 +500,6 @@ When inspecting the diagram carefully, it become apparent that the intent lifecy
 
 </section>
 
-
-<section title="Intent-Based Networking - Functionality">
-<t>
-Intent-Based Networking involves a wide variety of functions which can be roughly divided into two categories:
-<list style="symbols">
-<t>Intent Fulfillment provides functions and interfaces that allow users to communicate intent to the network, and that orchestrates the intent, i.e. that breaks down intent abstractions into lower-level network and device abstractions and performs or coordinates the configuration operations across the network.  
-</t>
-<t>Intent Assurance provides functions and interfaces that allow users to validate and monitor that the network is indeed adhering to and complying with intent.  Control plane or lower-level management operations can cause behavior that inadvertently conflicts with intent which was orchestrated earlier.  Accordingly, "intent drift" may occur.  
-Network operators need to be able to detect when such drift occurs, or is about to occur, and be provided with the necessary functions to resolve such conflicts.  This can occur by either bringing the network back into compliance, or by articulating modifications to the original intent to moderate between conflicting interests.  
-</t>
-</list>
-</t>
-<t>
-The following sections provide a more comprehensive overview of those functions.  
-</t>
-<section title="Intent Fulfillment">
-<t>RBD  
-</t>
-</section>
-
-<section title="Intent Assurance">
-<t>Ability to reason about system' state by employing closed-loop validation in the presence of an inevitable change is a fundamental property of an Intent Assurance part of an IBN system. Since service expectations are created during intent consumption and modeling phase, closed-loop intent vaidation should start immidiatelly, with the service instantiation.
-Telemetry consumed could then be enriched with an additional context and must always be processed in context of the Intent it has been instantiated. Direct relationship between the Intent and telemetry gathered enables correlation between changes in states and the Intent and provides contextual base for reasoning about the changes.
-</t>
-</section>
-</section>
 
 <section title="Items for Discussion">
 <t>
@@ -537,8 +529,14 @@ Not applicable
 <section title="Security Considerations">
  
 <t>
-Not applicable
+Intent-Based Networking needs to put safeguards into place against intent that might compromise security.  
 </t>
+<t>
+For one, there is the possibility of ill-advised intent that inadvertently compromises security.  In addition, there is the possibility of ill intent, for example intent from an inside attacker intent on sabotaging a network and making it vulnerable to attack, e.g. by defeating certain security mechanisms.  Intent-Based Networks need to take these possiblities into account.  
+</t>
+<t>Mechanisms to consider include the introduction of multiple levels of intent.  For example, intent related to securing the network should occur at a "deeper" level that overrides other levels of intent if necessary, and that is not subject to modification through regular operation but specially secured.  Use of additional mechanisms such as explanation components that explain security ramifications and tradeoff should be considered as well.     
+</t>
+
 </section>
 
 </middle>
@@ -595,16 +593,6 @@ Not applicable
 	<author fullname="Open Networking Foundation">
 	</author>
 	<date month="October" year="2016" />
-	</front>
-  </reference> 
-
-  <reference anchor="eTOM"> 
-	<front>		
-	<title>GB 921 Business Process Framework, Release 17.0.1.</title>
-	<author fullname="TMForum">
-	</author>
-
-	<date month="February" year="2018" />
 	</front>
   </reference> 
 
