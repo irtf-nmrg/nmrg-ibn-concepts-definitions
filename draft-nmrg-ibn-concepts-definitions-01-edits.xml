@@ -417,7 +417,7 @@ The Network Operations space, finally, involves the traditional orchestration, c
                       :                                :
         +----------+   :  +----------+   +-----------+  :  +-----------+
 Fulfill |recognize/| ---> |translate/|-->|  learn/   | --> | configure/|
-		|generate  |	  | 		 |   |  plan/    |     | provision |
+        |generate  |      |          |   |  plan/    |     | provision |
         |intent    | <--- |  refine  |   |  render   |  :  |           |
         +----^-----+   :  +----------+   +-----^-----+  :  +-----------+
              |        :                       |        :        |
