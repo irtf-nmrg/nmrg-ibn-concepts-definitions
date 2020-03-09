@@ -524,53 +524,24 @@ Whether to do so is an item for discussion by the Research Group.
 	
 
 <section title="Security Considerations">
-<t>
-Intent-Based Networking needs to put safeguards into place against intent that might compromise security.  
-</t>
-<t>
-For one, there is the possibility of ill-advised intent that inadvertently compromises security.  In addition, there is the possibility of ill intent, for example intent from an inside attacker intent on sabotaging a network and making it vulnerable to attack, e.g. by defeating certain security mechanisms.  Intent-Based Networks need to take these possiblities into account.  
-</t>
-<t>Mechanisms to consider include the introduction of multiple levels of intent.  For example, intent related to securing the network should occur at a "deeper" level that overrides other levels of intent if necessary, and that is not subject to modification through regular operation but specially secured.  Use of additional mechanisms such as explanation components that explain security ramifications and tradeoff should be considered as well.     
-</t>
-
-<t>
-This document describes concepts and definitions of Intent-based Networking. As such, the below security consdierations remain high level, i.e. in the form of principles, guidelines or requirements. More detailed security considerations will be described in the documents that specify the architecture and functionality.</t>
-<t>
-Security in Intent-based Networking can apply to different facets: 
+<t>This document describes concepts and definitions of Intent-based Networking. As such, the below security considerations remain high level, i.e. in the form of principles, guidelines or requirements. More detailed security considerations will be described in the documents that specify the architecture and functionality.</t>
+<t>Security in Intent-based Networking can apply to different facets: 
 <list style="symbols">
   <t>Securing the intent-based system itself.</t>
-  <t>Mitigating the effects of erroneous or compromised intents. + amplification due to automation (error amplficiation) and level of abstraction (resolve ambiguity, implicit->explicit, degrees of freedom). operationally safe (safeguards, (graceful)rollback/fallback), levels of supervision/reporting (operator is aware of the right stuff tight time right level of info)</t>
-  <t>Expressing security policies or security-related parameters with intents. Security parameters of intent, e.g. data governance, encryption, isolation .security aspects of intent (e;g. level of confidentiality in data exchange, level of availability/protection in forwarding paths, level of encryption, authorised entities...)</t>
+  <t>Mitigating the effects of erroneous, harmful or compromised intents.</t>
+  <t>Expressing security policies or security-related parameters with intents.</t>
 </list></t>
-<t>
-Securing the intent-based system aims at making the intent-based system operationally secure by applying security best practices. (intent checking, validation, non-tampered, autorized/authenticated users/operations).  outline IBN specific (concept/design level) securoty considerations and new/novel requirements/aspects
+<t>Securing the intent-based system aims at making the intent-based system operationally secure by implementing security mechanisms and applying security best practices. In the context of Intent-based Networking, such mechanisms and practices may consist in intent verification and validation; operations on intents by authenticated and authorized users only; protection against or detection of tampered intents.
+Such mechanisms may also include the introduction of multiple levels of intent. For example, intent related to securing the network should occur at a "deeper" level that overrides other levels of intent if necessary, and that is not subject to modification through regular operations but through ones that are specifically secured.  Use of additional mechanisms such as explanation components that describe the security ramifications and trade-off should be considered as well.</t>
 
+<t>Mitigating the effects of erroneous or compromised intents aims at making the intent-based system operationally safe by providing checkpoint and safeguard mechanisms and operating principles. In the context of Intent-based Networking, such mechanisms and principles may consist in the ability to automatically detect unintended, detrimental or abnormal behavior; the ability to automatically (and gracefully) rollback or fallback to a previous "safe" state; the ability to prevent or contain error amplification (due to the combination of higher degree of automation and the intrinsic higher degree of freedom, ambiguity, and implicit conveyed by intents); dynamic levels of supervision and reporting to make the user aware of the right information, at the right time with the right level of context.
+Erroneous or harmful intents may inadvertently propagate and compromise security. In addition, compromised intents, for example intent forged by an inside attacker, may sabotage or harm the network resources and make them vulnerable to further, larger attacks, e.g. by defeating certain security mechanisms.</t>
 
+<t>Expressing security policies or security-related parameters with intents consists in using the intent formalism (a high-level, declarative abstraction), or part(s) of an intent statement to define security-related aspects such as data governance, level(s) of confidentiality in data exchange, level(s) of availability of system resources, of protection in forwarding paths, of isolation in processing functions, level(s) of encryption, authorized entities for given operations, etc.</t>
 
-what are we considering: mitigate or control the (security-related) effects of intent realization? and/or security-by-design in IB systems (requirements, principles)
+<t>The development and introduction of Intent-based Networking in operational environments will certainly create new security concerns. Such security concerns have to be anticipated at the design and specification time. However, Intent-based Networking may also be used as an enabler for better security. For instance, security and privacy rules could be expressed in more human-friendly and generic way and be less technology-specific and less complex, leading to fewer low-level configuration mistakes. The detection of threats or attacks could also be made more simple and comprehensive thanks to conflicts detection at higher-level or 	at coarser granularity</t>
 
-Compromised intent generate detrimental effects at scale because automation 
-Provide means to contain impact and minimize surface attacks. dual: both an enbaler of better security (
-Safeguards in lifecycle to verify and roll back, report, rule out harmful intents
-IBN new technology for NM . Should run security analysis to identify potential new threats.
-Shall follow security BCP and implement standard  security measures
-IBN could be used as a security enabler: high level security and privacy rules. Maybe easier ways to detect threats and attacks (intent conflicts, harmful intents)
-
-safeguards and chekpoints:
-authorized and authenticated user: who writes the intent. 
-Check intent correcteness and validity, not tampered.
-Execute intent: validation step. Roll-back. Safeguards.
-
-From google ZTN [ref]:  
-"Any network changes are automatically halted and rolled-back if the network displays unintended behavior
-The infrastructure does not allow operations which violate network policies
-Workflow Safety
-●Ability to automatically check the safety of operations
-●Ability to repeatedly validate the network state against the stated intent
-●Ability to recognize “bad” network behavior
-●Ability to roll back to the original state"
-</t>
-
+<t>A complete and thorough security analysis should be conducted as the Intent-based Networking technology, its documentation and implementation, and our understanding of it matures.</t>
 </section>
 
 </middle>
