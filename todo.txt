@@ -4,29 +4,55 @@ todo list - draft-irtf-nmrg-ibn-concepts-definitions
 . Integrate detailed review from Lisandro
 
 (Laurent)	
-. Shorten introduction and more clear, logical flow. What do we want to say in the introduction, liaison between main points. Add relevant references.  a few nits to correct. And remove reference to research challenges (out of the ID in -03)
-. Reorganize section on Acronyms, Terms and Definitions. Goal: proper Terminology and definitions.
+. Shorten introduction and more clear, logical flow. What do we want to say in the introduction, liaison between main points. Add relevant references.  a few nits to correct. And remove reference to research challenges (out of the ID in -01)
+
+. Reorganize section on Acronyms, Terms and Definitions. Goal: proper Terminology and definitions. 	Parse the document to find main terms and concepts needing a proper definition.
+
 . Add section on IBN definitions from other sources: ONF, ETSI... and related "work" (e.g. ZTN)
   Analyze, clarify and summarize  the relationship  of IBN with other technologies e.g. PBM, TMN...
+  
 . (new) Section on IBN Concepts and Principles
   Incl. Main goals. What problems the IBN vision is trying to address. (short Problem statement/contextualization)
+  
 . Rename section on Lifecycle to Theory of Operation 
   Consolidate in single diagram.
+  
 . New section on Lifecycle
-  Intent states: declared (listed but no execution logic); defined (has execution logic); supported (can be executed); active (deployed to network/ under execution) + other states: on-hold? Decommissioned? + cf altiplano presentation
+  Intent states: declared (listed but no execution logic); defined (has execution logic); supported (can be executed); active (deployed to network/ under execution) + other states: on-hold? Decommissioned?
   Are states exclusive or could be cumulative (e.g. observed and active), some conditional…
-. Provide more content on functionality section (merge 7 and 6)(partly done in -03 by Alex)
+  
+. Provide more content on functionality section (merge 7 and 6)(partly done in -01 by Alex)
   Description of each ToOps/lifecycle steps. Requirements? (towards ID on architecture)
-. Provide content for Security Considerations
+  
+. Section 5: make principles into sub-headings
+
+. Change "harmful" with "malicious" intent in security considerations. Add "and inconsistencies" after "low-level configuration mistakes"
+  
+. Add description for principles on: autonomy and oversight -> to be added: description for feedback, reporting, guarantee scope (check points, guard rails, dynamically provisioned, context rich, regular operation vs. exception/abnormal, information zoom in-out, and link to SVoT. Accountable for decisions and efficiency, late binding (leave it to the system where to place functionality, how to accomplish certain goals).
+	
+. Add description for principles on: capability exposure.
+	not just automation of steps that need to be taken, but of bridging the semantic gap between "intent" and actionable levels of instructions
+	Context: multi providers, need discovery and semantic descriptions
+	
+. Add description on Explainability:  why is an IB network doing what it is doing
+
+. Add acknowledgement section: comments received from Will, Juergen, Jérôme, Olga …
+
+
+  
+. Provide content for Security Considerations (done in -01)
   Compromised intent generate detrimental effects at scale because automation 
   Provide means to contain impact and minimize surface attacks 
   Safeguards in lifecycle to verify and roll back, report, rule out harmful intents
   IBN new technology for NM . Should run security analysis to identify potential new threats.
   Shall follow security BCP and implement standard  security measures
   IBN could be used as a security enabler: high level security and privacy rules. Maybe easier ways to detect threats and attacks (intent conflicts, harmful intents)
+  
 . (new) Introduce Manageability Considerations ?(for all NMRG IDs)
   Cf. https://tools.ietf.org/html/rfc6123 and https://www.rfc-editor.org/rfc/rfc5706.html
 
 (Alex)
-. Editorially align 6 and 7, specifically moving some of the material from 6 (lifecycle) into 7 (description of functions).
-. Adding discussion of security implications.
+(done) . Editorially align 6 and 7, specifically moving some of the material from 6 (lifecycle) into 7 (description of functions).
+(done) . Adding discussion of security implications.
+
+
