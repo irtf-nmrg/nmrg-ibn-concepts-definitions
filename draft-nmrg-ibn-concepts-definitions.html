@@ -1,0 +1,902 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head profile="http://www.w3.org/2006/03/hcard http://dublincore.org/documents/2008/08/04/dc-html/">
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+
+  <title>Intent-Based Networking - Concepts and Definitions</title>
+
+  <style type="text/css" title="Xml2Rfc (sans serif)">
+  /*<![CDATA[*/
+	  a {
+	  text-decoration: none;
+	  }
+      /* info code from SantaKlauss at http://www.madaboutstyle.com/tooltip2.html */
+      a.info {
+          /* This is the key. */
+          position: relative;
+          z-index: 24;
+          text-decoration: none;
+      }
+      a.info:hover {
+          z-index: 25;
+          color: #FFF; background-color: #900;
+      }
+      a.info span { display: none; }
+      a.info:hover span.info {
+          /* The span will display just on :hover state. */
+          display: block;
+          position: absolute;
+          font-size: smaller;
+          top: 2em; left: -5em; width: 15em;
+          padding: 2px; border: 1px solid #333;
+          color: #900; background-color: #EEE;
+          text-align: left;
+      }
+	  a.smpl {
+	  color: black;
+	  }
+	  a:hover {
+	  text-decoration: underline;
+	  }
+	  a:active {
+	  text-decoration: underline;
+	  }
+	  address {
+	  margin-top: 1em;
+	  margin-left: 2em;
+	  font-style: normal;
+	  }
+	  body {
+	  color: black;
+	  font-family: verdana, helvetica, arial, sans-serif;
+	  font-size: 10pt;
+	  max-width: 55em;
+	  
+	  }
+	  cite {
+	  font-style: normal;
+	  }
+	  dd {
+	  margin-right: 2em;
+	  }
+	  dl {
+	  margin-left: 2em;
+	  }
+	
+	  ul.empty {
+	  list-style-type: none;
+	  }
+	  ul.empty li {
+	  margin-top: .5em;
+	  }
+	  dl p {
+	  margin-left: 0em;
+	  }
+	  dt {
+	  margin-top: .5em;
+	  }
+	  h1 {
+	  font-size: 14pt;
+	  line-height: 21pt;
+	  page-break-after: avoid;
+	  }
+	  h1.np {
+	  page-break-before: always;
+	  }
+	  h1 a {
+	  color: #333333;
+	  }
+	  h2 {
+	  font-size: 12pt;
+	  line-height: 15pt;
+	  page-break-after: avoid;
+	  }
+	  h3, h4, h5, h6 {
+	  font-size: 10pt;
+	  page-break-after: avoid;
+	  }
+	  h2 a, h3 a, h4 a, h5 a, h6 a {
+	  color: black;
+	  }
+	  img {
+	  margin-left: 3em;
+	  }
+	  li {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  ol {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  ol p {
+	  margin-left: 0em;
+	  }
+	  p {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  pre {
+	  margin-left: 3em;
+	  background-color: lightyellow;
+	  padding: .25em;
+	  }
+	  pre.text2 {
+	  border-style: dotted;
+	  border-width: 1px;
+	  background-color: #f0f0f0;
+	  width: 69em;
+	  }
+	  pre.inline {
+	  background-color: white;
+	  padding: 0em;
+	  }
+	  pre.text {
+	  border-style: dotted;
+	  border-width: 1px;
+	  background-color: #f8f8f8;
+	  width: 69em;
+	  }
+	  pre.drawing {
+	  border-style: solid;
+	  border-width: 1px;
+	  background-color: #f8f8f8;
+	  padding: 2em;
+	  }
+	  table {
+	  margin-left: 2em;
+	  }
+	  table.tt {
+	  vertical-align: top;
+	  }
+	  table.full {
+	  border-style: outset;
+	  border-width: 1px;
+	  }
+	  table.headers {
+	  border-style: outset;
+	  border-width: 1px;
+	  }
+	  table.tt td {
+	  vertical-align: top;
+	  }
+	  table.full td {
+	  border-style: inset;
+	  border-width: 1px;
+	  }
+	  table.tt th {
+	  vertical-align: top;
+	  }
+	  table.full th {
+	  border-style: inset;
+	  border-width: 1px;
+	  }
+	  table.headers th {
+	  border-style: none none inset none;
+	  border-width: 1px;
+	  }
+	  table.left {
+	  margin-right: auto;
+	  }
+	  table.right {
+	  margin-left: auto;
+	  }
+	  table.center {
+	  margin-left: auto;
+	  margin-right: auto;
+	  }
+	  caption {
+	  caption-side: bottom;
+	  font-weight: bold;
+	  font-size: 9pt;
+	  margin-top: .5em;
+	  }
+	
+	  table.header {
+	  border-spacing: 1px;
+	  width: 95%;
+	  font-size: 10pt;
+	  color: white;
+	  }
+	  td.top {
+	  vertical-align: top;
+	  }
+	  td.topnowrap {
+	  vertical-align: top;
+	  white-space: nowrap; 
+	  }
+	  table.header td {
+	  background-color: gray;
+	  width: 50%;
+	  }
+	  table.header a {
+	  color: white;
+	  }
+	  td.reference {
+	  vertical-align: top;
+	  white-space: nowrap;
+	  padding-right: 1em;
+	  }
+	  thead {
+	  display:table-header-group;
+	  }
+	  ul.toc, ul.toc ul {
+	  list-style: none;
+	  margin-left: 1.5em;
+	  margin-right: 0em;
+	  padding-left: 0em;
+	  }
+	  ul.toc li {
+	  line-height: 150%;
+	  font-weight: bold;
+	  font-size: 10pt;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	  }
+	  ul.toc li li {
+	  line-height: normal;
+	  font-weight: normal;
+	  font-size: 9pt;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	  }
+	  li.excluded {
+	  font-size: 0pt;
+	  }
+	  ul p {
+	  margin-left: 0em;
+	  }
+	
+	  .comment {
+	  background-color: yellow;
+	  }
+	  .center {
+	  text-align: center;
+	  }
+	  .error {
+	  color: red;
+	  font-style: italic;
+	  font-weight: bold;
+	  }
+	  .figure {
+	  font-weight: bold;
+	  text-align: center;
+	  font-size: 9pt;
+	  }
+	  .filename {
+	  color: #333333;
+	  font-weight: bold;
+	  font-size: 12pt;
+	  line-height: 21pt;
+	  text-align: center;
+	  }
+	  .fn {
+	  font-weight: bold;
+	  }
+	  .hidden {
+	  display: none;
+	  }
+	  .left {
+	  text-align: left;
+	  }
+	  .right {
+	  text-align: right;
+	  }
+	  .title {
+	  color: #990000;
+	  font-size: 18pt;
+	  line-height: 18pt;
+	  font-weight: bold;
+	  text-align: center;
+	  margin-top: 36pt;
+	  }
+	  .vcardline {
+	  display: block;
+	  }
+	  .warning {
+	  font-size: 14pt;
+	  background-color: yellow;
+	  }
+	
+	
+	  @media print {
+	  .noprint {
+		display: none;
+	  }
+	
+	  a {
+		color: black;
+		text-decoration: none;
+	  }
+	
+	  table.header {
+		width: 90%;
+	  }
+	
+	  td.header {
+		width: 50%;
+		color: black;
+		background-color: white;
+		vertical-align: top;
+		font-size: 12pt;
+	  }
+	
+	  ul.toc a::after {
+		content: leader('.') target-counter(attr(href), page);
+	  }
+	
+	  ul.ind li li a {
+		content: target-counter(attr(href), page);
+	  }
+	
+	  .print2col {
+		column-count: 2;
+		-moz-column-count: 2;
+		column-fill: auto;
+	  }
+	  }
+	
+	  @page {
+	  @top-left {
+		   content: "Internet-Draft"; 
+	  } 
+	  @top-right {
+		   content: "December 2010"; 
+	  } 
+	  @top-center {
+		   content: "Abbreviated Title";
+	  } 
+	  @bottom-left {
+		   content: "Doe"; 
+	  } 
+	  @bottom-center {
+		   content: "Expires June 2011"; 
+	  } 
+	  @bottom-right {
+		   content: "[Page " counter(page) "]"; 
+	  } 
+	  }
+	
+	  @page:first { 
+		@top-left {
+		  content: normal;
+		}
+		@top-right {
+		  content: normal;
+		}
+		@top-center {
+		  content: normal;
+		}
+	  }
+  /*]]>*/
+  </style>
+
+  <link href="#rfc.toc" rel="Contents">
+<link href="#rfc.section.1" rel="Chapter" title="1 Introduction">
+<link href="#rfc.section.2" rel="Chapter" title="2 Key Words">
+<link href="#rfc.section.3" rel="Chapter" title="3 Definitions and Acronyms">
+<link href="#rfc.section.4" rel="Chapter" title="4 Introduction of Concepts">
+<link href="#rfc.section.4.1" rel="Chapter" title="4.1 Intent and Intent-Based Management">
+<link href="#rfc.section.4.2" rel="Chapter" title="4.2 Related Concepts">
+<link href="#rfc.section.4.2.1" rel="Chapter" title="4.2.1 Service Models">
+<link href="#rfc.section.4.2.2" rel="Chapter" title="4.2.2 Policy and Policy-Based Network Management">
+<link href="#rfc.section.4.2.3" rel="Chapter" title="4.2.3 Distinguishing between Intent, Policy, and Service Models">
+<link href="#rfc.section.5" rel="Chapter" title="5 Principles">
+<link href="#rfc.section.6" rel="Chapter" title="6 Intent-Based Networking - Functionality">
+<link href="#rfc.section.6.1" rel="Chapter" title="6.1 Intent Fulfillment">
+<link href="#rfc.section.6.2" rel="Chapter" title="6.2 Intent Assurance">
+<link href="#rfc.section.7" rel="Chapter" title="7 Life-cycle">
+<link href="#rfc.section.8" rel="Chapter" title="8 Items for Discussion">
+<link href="#rfc.section.9" rel="Chapter" title="9 IANA Considerations">
+<link href="#rfc.section.10" rel="Chapter" title="10 Security Considerations">
+<link href="#rfc.references" rel="Chapter" title="11 References">
+<link href="#rfc.references.1" rel="Chapter" title="11.1 Normative References">
+<link href="#rfc.references.2" rel="Chapter" title="11.2 Informative References">
+<link href="#rfc.authors" rel="Chapter">
+
+
+  <meta name="generator" content="xml2rfc version 2.40.1 - https://tools.ietf.org/tools/xml2rfc" />
+  <link rel="schema.dct" href="http://purl.org/dc/terms/" />
+
+  <meta name="dct.creator" content="Clemm, A., Ciavaglia, L., Granville, L., and J. Tantsura" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-irtf-nmrg-ibn-concepts-definitions-01" />
+  <meta name="dct.issued" scheme="ISO8601" content="2020-03-11" />
+  <meta name="dct.abstract" content="Intent and Intent-Based Networking (IBN) are taking the industry by storm.  At the same time, those terms are used loosely and often inconsistently, in many cases overlapping and confused with other concepts such as &quot;Policy&quot;.  This document clarifies the concept of &quot;Intent&quot; and provides an overview of functionality that is associated with it.  The goal is to contribute towards a common and shared understanding of terms, concepts, and functionality that can be used as foundation to guide further definition of associated research and engineering problems and their solutions.   " />
+  <meta name="description" content="Intent and Intent-Based Networking (IBN) are taking the industry by storm.  At the same time, those terms are used loosely and often inconsistently, in many cases overlapping and confused with other concepts such as &quot;Policy&quot;.  This document clarifies the concept of &quot;Intent&quot; and provides an overview of functionality that is associated with it.  The goal is to contribute towards a common and shared understanding of terms, concepts, and functionality that can be used as foundation to guide further definition of associated research and engineering problems and their solutions.   " />
+
+</head>
+
+<body>
+
+  <table class="header">
+    <tbody>
+    
+    	<tr>
+<td class="left">Network Working Group</td>
+<td class="right">A. Clemm</td>
+</tr>
+<tr>
+<td class="left">Internet-Draft</td>
+<td class="right">Futurewei</td>
+</tr>
+<tr>
+<td class="left">Intended status: Informational</td>
+<td class="right">L. Ciavaglia</td>
+</tr>
+<tr>
+<td class="left">Expires: September 12, 2020</td>
+<td class="right">Nokia</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">L. Granville</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">Federal University of Rio Grande do Sul (UFRGS)</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">J. Tantsura</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">Apstra, Inc.</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">March 11, 2020</td>
+</tr>
+
+    	
+    </tbody>
+  </table>
+
+  <p class="title">Intent-Based Networking - Concepts and Definitions<br />
+  <span class="filename">draft-irtf-nmrg-ibn-concepts-definitions-01</span></p>
+  
+  <h1 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h1>
+<p>Intent and Intent-Based Networking (IBN) are taking the industry by storm.  At the same time, those terms are used loosely and often inconsistently, in many cases overlapping and confused with other concepts such as "Policy".  This document clarifies the concept of "Intent" and provides an overview of functionality that is associated with it.  The goal is to contribute towards a common and shared understanding of terms, concepts, and functionality that can be used as foundation to guide further definition of associated research and engineering problems and their solutions.  </p>
+<h1 id="rfc.status"><a href="#rfc.status">Status of This Memo</a></h1>
+<p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
+<p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
+<p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
+<p>This Internet-Draft will expire on September 12, 2020.</p>
+<h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
+<p>Copyright (c) 2020 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
+<p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
+
+  
+  <hr class="noprint" />
+  <h1 class="np" id="rfc.toc"><a href="#rfc.toc">Table of Contents</a></h1>
+  <ul class="toc">
+
+  	<li>1.   <a href="#rfc.section.1">Introduction</a>
+</li>
+<li>2.   <a href="#rfc.section.2">Key Words</a>
+</li>
+<li>3.   <a href="#rfc.section.3">Definitions and Acronyms</a>
+</li>
+<li>4.   <a href="#rfc.section.4">Introduction of Concepts</a>
+</li>
+<ul><li>4.1.   <a href="#rfc.section.4.1">Intent and Intent-Based Management</a>
+</li>
+<li>4.2.   <a href="#rfc.section.4.2">Related Concepts</a>
+</li>
+<ul><li>4.2.1.   <a href="#rfc.section.4.2.1">Service Models</a>
+</li>
+<li>4.2.2.   <a href="#rfc.section.4.2.2">Policy and Policy-Based Network Management</a>
+</li>
+<li>4.2.3.   <a href="#rfc.section.4.2.3">Distinguishing between Intent, Policy, and Service Models</a>
+</li>
+</ul></ul><li>5.   <a href="#rfc.section.5">Principles</a>
+</li>
+<li>6.   <a href="#rfc.section.6">Intent-Based Networking - Functionality</a>
+</li>
+<ul><li>6.1.   <a href="#rfc.section.6.1">Intent Fulfillment</a>
+</li>
+<li>6.2.   <a href="#rfc.section.6.2">Intent Assurance</a>
+</li>
+</ul><li>7.   <a href="#rfc.section.7">Life-cycle</a>
+</li>
+<li>8.   <a href="#rfc.section.8">Items for Discussion</a>
+</li>
+<li>9.   <a href="#rfc.section.9">IANA Considerations</a>
+</li>
+<li>10.   <a href="#rfc.section.10">Security Considerations</a>
+</li>
+<li>11.   <a href="#rfc.references">References</a>
+</li>
+<ul><li>11.1.   <a href="#rfc.references.1">Normative References</a>
+</li>
+<li>11.2.   <a href="#rfc.references.2">Informative References</a>
+</li>
+</ul><li><a href="#rfc.authors">Authors' Addresses</a>
+</li>
+
+
+  </ul>
+
+  <h1 id="rfc.section.1">
+<a href="#rfc.section.1">1.</a> <a href="#intro" id="intro">Introduction</a>
+</h1>
+<p id="rfc.section.1.p.1">Traditionally in the IETF, interest regarding management and operations has focused on individual network and device features. Standardization emphasis has generally been put on management instrumentation that needed to be provided to a networking device.  A prime example of this is SNMP-based management and the 200+ MIBs that have been defined by the IETF over the years. More recent examples include YANG data model definitions for aspects such as interface configuration, ACL configuration, or Syslog configuration.  </p>
+<p id="rfc.section.1.p.2">There is a sense and reality that in modern network environments managing networks by configuring myriads of "nerd knobs" on a device-by-device basis is no longer sustainable.  Significant challenges arise with keeping device configurations not only consistent across a network, but consistent with the needs of services and service features they are supposed to enable.  Adaptability to changes at scale is a fundamental property of a well-designed IBN system, that requires the ability to consume and process analytics that is context/intent aware at near real-time speeds.  At the same time, operations need to be streamlined and automated wherever possible to not only lower operational expenses, but also allow for rapid reconfiguration of networks at sub-second time scales and to ensure that networks are delivering their functionality as expected.  </p>
+<p id="rfc.section.1.p.3">Accordingly, the IETF has begun to address end-to-end management aspects that go beyond the realm of individual devices in isolation.  Examples include the definition of YANG models for network topology <a href="#RFC8345" class="xref">[RFC8345]</a> or the introduction of service models used by service orchestration systems and controllers <a href="#RFC8309" class="xref">[RFC8309]</a>.  Much interest has been fueled by the discussion about how to manage autonomic networks, as discussed in the ANIMA working group.  Autonomic networks are driven by the desire to lower operational expenses and make the management of the network as a whole more straightforward, putting it at odds with the need to manage the network one device and one feature at a time. However, while autonomic networks are intended to exhibit "self-management" properties, they still require input from an operator or outside system to provide operational guidance and information about the goals, purposes, and service instances that the network is to serve.  </p>
+<p id="rfc.section.1.p.4">This vision has since caught on with the industry in a big way, leading to a significant number of solutions that offer "Intent-based management" that promise network providers to manage networks holistically at a higher level of abstraction and as a system that happens to consist of interconnected components, as opposed to a set of independent devices (that happen to be interconnected).  Those offerings include IBN systems (offering full a life-cycle of intent), SDN controllers (offering a single point of control and administration for a network), and network management and Operations Support Systems (OSS).  </p>
+<p id="rfc.section.1.p.5">However, it has been recognized for a long time that comprehensive management solutions cannot operate only at the level of individual devices and low-level configurations.  In this sense, the vision of "Intent" is not entirely new.  In the past, ITU-T's model of a Telecommunications Management Network, TMN, introduced a set of management layers that defined a management hierarchy, consisting of network element, network, service, and business management.  High-level operational objectives would propagate in a top-down fashion from upper to lower layers.  The associated abstraction hierarchy was crucial to decompose management complexity into separate areas of concerns.  This abstraction hierarchy was accompanied by an information hierarchy that concerned itself at the lowest level with device-specific information, but that would, at higher layers, include, for example, end-to-end service instances.  Similarly, the concept of "Policy-based Network Management (PBNM)" has, for a long time, touted the ability to allow users to manage networks by specifying high-level management policies, with policy systems automatically "rendering" those policies, i.e., breaking them down into low-level configurations and control logic.  </p>
+<p id="rfc.section.1.p.6">What has been missing, however, is putting these concepts into a more current context and updating them to account for current technology trends.   This document clarifies the concepts behind intent.  It differentiates it from related concepts.  It also provides an overview of first-order principles of Intent-Based Networking as well as associated functionality.  The goal is to contribute to a common and shared understanding that can be used as a foundation to articulate research and engineering problems in the area of Intent-Based Networking.  </p>
+<h1 id="rfc.section.2">
+<a href="#rfc.section.2">2.</a> Key Words</h1>
+<p id="rfc.section.2.p.1">The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in BCP 14 <a href="#RFC2119" class="xref">[RFC2119]</a> <a href="#RFC8174" class="xref">[RFC8174]</a> when, and only when, they appear in all capitals, as shown here.  </p>
+<h1 id="rfc.section.3">
+<a href="#rfc.section.3">3.</a> Definitions and Acronyms</h1>
+<p></p>
+
+<ul class="empty">
+<li>ACL: Access Control List</li>
+<li>Intent: A set of operational goals that a network should meet and outcomes that a network is supposed to deliver, defined in a declarative manner without specifying how to achieve or implement them.  </li>
+<li>IBA: Intent-Based Analytics - Analytics that are defined and derived from users' intent and used to validate the intended state.</li>
+<li>IBN: Intent-Based Network, a network that can be managed using intent.</li>
+<li>IBS: Intent-Based System, a system that supports management functions that can be guided using intent.</li>
+<li>Policy: A set of rules that governs the choices in behavior of a system.</li>
+<li>PDP: Policy Decision Point.</li>
+<li>PEP: Policy Enforcement Point.</li>
+<li>Service Model: A model that represents a service that is provided by a network to a user.</li>
+<li>SSoT: Single Source of Truth - A functional block in an IBN system that normalizes users' intent and serves as the single source of data for the lower layers.</li>
+</ul>
+
+<p> </p>
+<h1 id="rfc.section.4">
+<a href="#rfc.section.4">4.</a> <a href="#Concepts" id="Concepts">Introduction of Concepts</a>
+</h1>
+<p id="rfc.section.4.p.1">The following section provides an overview of the concept of Intent and Intent-Based Management.  It also provides an overview of the related concepts of service models, and of policies respectively Policy-Based Network Management, and explains how they relate to Intent and Intent-Based Management.  </p>
+<h1 id="rfc.section.4.1">
+<a href="#rfc.section.4.1">4.1.</a> Intent and Intent-Based Management</h1>
+<p id="rfc.section.4.1.p.1">In the context of Autonomic Networks, Intent is defined as "an abstract, high-level policy used to operate a network" <a href="#RFC7575" class="xref">[RFC7575]</a>.  According to this definition, an Intent is a specific type of policy. However, to avoid using "Intent" simply as a synonym for "Policy", a distinction needs to be introduced that differentiates Intent clearly from other types of policies.  </p>
+<p id="rfc.section.4.1.p.2">For one, while Intent-Based Management aims to lead towards networks that are dramatically simpler to manage and operate requiring only minimal outside intervention, the concept of "Intent" is not limited to autonomic networks, but applies to any network.  Networks, even when considered "autonomic", are not clairvoyant and have no way of automatically knowing particular operational goals nor what instances of networking services to support.  In other words, they do not know what the "Intent" of the network provider is that gives the network the purpose of its being.  This still needs to be communicated by what informally constitutes "Intent".  </p>
+<p id="rfc.section.4.1.p.3">More specifically, Intent is a declaration of operational goals that a network should meet and outcomes that the network is supposed to deliver, without specifying how to achieve them.  Those goals and outcomes are defined in a manner that is purely declarative - they specify what to accomplish, not how to achieve it.  "Intent" thus applies several important concepts simultaneously: </p>
+
+<ul>
+<li>It provides data abstraction: Users and operators do not need to be concerned with low-level device configuration and nerd knobs. </li>
+<li>It provides functional abstraction from particular management and control logic: Users and operators do not need to be concerned even with how to achieve a given Intent.  What is specified is a desired outcome, with the Intent-based system automatically figuring out a course of action (e.g., a set of rules (thus, a set of rules is not part of an intent but rather derived from that intent), an algorithm) for how to achieve the outcome. </li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.4.1.p.4">In an autonomic network, intent should be rendered by the network itself, i.e., translated into device-specific rules and courses of action.  Ideally, it should not even be orchestrated or broken down by a higher-level, centralized system, but by the network devices themselves using a combination of distributed algorithms and local device abstraction.  Because intent holds for the network as a whole, not individual devices, it needs to be automatically disseminated across all devices in the network, which can themselves decide whether they need to act on it.  This facilitates management even further, since it obviates the need for a higher-layer system to break down and decompose higher-level intent, and because there is no need even to discover and maintain an inventory of the network to be able to manage it.  </p>
+<p id="rfc.section.4.1.p.5">Tentative definition for intent-based networks Networks configuring and adapting autonomously to the user or operator intentions (i.e., a desired state or behavior) without the need to specify every technical detail of the process and operations to achieve it (i.e., the "machines" will figure out on their own how to realize the user goal).  </p>
+<p id="rfc.section.4.1.p.6">Other definitions of intent exist, such as <a href="#TR523" class="xref">[TR523]</a>, and will be investigated in future revisions of this document.  Likewise, some definitions of intent allow for the presence of a centralized function that renders the intent into lower-level policies or instructions and orchestrates them across the network.  While, to the end-user, the concept of "Intent" appears the same regardless of its method of rendering, this interpretation opens a slippery slope of how to clearly distinguish "intent" from other higher-layer abstractions.  Again, these notions will be further investigated in future revisions of this document and in collaboration with NMRG.  </p>
+<h1 id="rfc.section.4.2">
+<a href="#rfc.section.4.2">4.2.</a> Related Concepts</h1>
+<h1 id="rfc.section.4.2.1">
+<a href="#rfc.section.4.2.1">4.2.1.</a> Service Models</h1>
+<p id="rfc.section.4.2.1.p.1">A service model is a model that represents a service that is provided by a network to a user. Per <a href="#RFC8309" class="xref">[RFC8309]</a>, a service model describes a service and its parameters in a portable/implementation-agnostic way that can be used independently of the equipment and operating environment on which the service is realized. Two subcategories are distinguished: a "Customer Service Model" describes an instance of a service as provided to a customer, possibly associated with a service order.  A "Service Delivery Model" describes how a service is instantiated over existing networking infrastructure.  </p>
+<p id="rfc.section.4.2.1.p.2">An example of a service could be a Layer 3 VPN service <a href="#RFC8299" class="xref">[RFC8299]</a>, a Network Slice, or residential Internet access.  Service models represent service instances as entities in their own right.  Services have their own parameters, actions, and life-cycles.  Typically, service instances can be bound to end-users, who might be billed for the service.  </p>
+<p id="rfc.section.4.2.1.p.3">Instantiating a service typically involves multiple aspects: </p>
+
+<ul>
+<li>A user (or northbound system) needs to define and/or request a service to be instantiated.</li>
+<li>Resources need to be allocated, such as IP addresses, AS numbers, VLAN or VxLAN pools, interfaces, bandwidth, or memory.</li>
+<li>How to map services to the resources needs to be defined.  Multiple mappings are often possible, which to select may depend on context (such as which type of access is available to connect the end user with the service). </li>
+<li>Bindings need to be maintained between upper and lower-level objects. </li>
+<li>Once instantiated, the service needs to be validated and assured to ensure that the network indeed delivers the service as requested.</li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.4.2.1.p.4">They involve a system, such as a controller, that provides provisioning logic.  Orchestration itself is generally conducted using a "push" model, in which the controller/manager initiates the operations as required, pushing down the specific configurations to the device. (In addition to instantiating and creating new instances of a service, updating, modifying, and decommissioning services need to be also supported.) The device itself typically remains agnostic to the service or the fact that its resources or configurations are part of a service/concept at a higher layer.  </p>
+<p id="rfc.section.4.2.1.p.5">Instantiated service models map to instantiated lower-layer network and device models.  Examples include instances of paths, or instances of specific port configurations.  The service model typically also models dependencies and layering of services over lower-layer networking resources that are used to provide services.  This facilitates management by allowing to follow dependencies for troubleshooting activities, to perform impact analysis in which events in the network are assessed regarding their impact on services and customers.  Services are typically orchestrated and provisioned top-to-bottom, which also facilitates keeping track of the assignment of network resources.  Service models might also be associated with other data that does not concern the network but provides business context.  This includes things such as customer data (such as billing information), service orders and service catalogs, tariffs, service contracts, and Service Level Agreements (SLAs), including contractual agreements regarding remediation actions.  </p>
+<p><a href="#I-D.ietf-teas-te-service-mapping-yang" class="xref">[I-D.ietf-teas-te-service-mapping-yang]</a> is an example of a data model that provides a mapping for customer service models (e.g., the L3VPN Service Model) to Traffic Engineering (TE) models (e.g., the TE Tunnel or the Abstraction and Control of Traffic Engineered Networks Virtual Network model)</p>
+<p id="rfc.section.4.2.1.p.7">Like intent, service models provide higher layers of abstraction.  Service models are often also complemented with mappings that capture dependencies between service and device or network configurations.  Unlike intent, service models do not allow to define a desired "outcome" that would be automatically maintained by the intent system.  Instead, the management of service models requires the development of sophisticated algorithms and control logic by network providers or system integrators.  </p>
+<h1 id="rfc.section.4.2.2">
+<a href="#rfc.section.4.2.2">4.2.2.</a> Policy and Policy-Based Network Management</h1>
+<p id="rfc.section.4.2.2.p.1">Policy-Based Network Management (PBNM) is a management paradigm that separates the rules that govern the behavior of a system from the functionality of the system.  It promises to reduce maintenance costs of information and communication systems while improving flexibility and runtime adaptability.  It is  present today at the heart of a multitude of management architectures and paradigms, including SLA-driven, Business-driven, autonomous, adaptive, and self-* management <a href="#Boutaba07" class="xref">[Boutaba07]</a>.  The interested reader is asked to refer to the rich set of existing literature, which includes this and many other references.  In the following, we will only provide a much-abridged and distilled overview.  </p>
+<p id="rfc.section.4.2.2.p.2">At the heart of policy-based management is the concept of a policy.  Multiple definitions of policy exist: "Policies are rules governing the choices in the behavior of a system" <a href="#Sloman94" class="xref">[Sloman94]</a>.  "Policy is a set of rules that are used to manage and control the changing and/or maintaining of the state of one or more managed objects" <a href="#Strassner03" class="xref">[Strassner03]</a>.  Common to most definitions is the definition of a policy as a "rule".  Typically, the definition of a rule consists of an event (whose occurrence triggers a rule), a set of conditions (which get assessed and which must be true before any actions are actually "fired"), and finally a set of one or more actions that are carried out when the condition holds.  </p>
+<p id="rfc.section.4.2.2.p.3">Policy-based management can be considered an imperative management paradigm: Policies precisely specified what needs to be done when and in which circumstance.  By using policies, management can, in effect, be defined as a set of simple control loops.  This makes policy-based management a suitable technology to implement autonomic behavior that can exhibit self-* management properties, including self-configuration, self-healing, self-optimization, and self-protection.  In effect, policies define management as a set of simple control loops.  </p>
+<p id="rfc.section.4.2.2.p.4">Policies typically involve a certain degree of abstraction in order to cope with the heterogeneity of networking devices.  Rather than having a device-specific policy that defines events, conditions, and actions in terms of device-specific commands, parameters, and data models, a policy is defined at a higher-level of abstraction involving a canonical model of systems and devices to which the policy is to be applied.  A policy agent on a controller or the device subsequently "renders" the policy, i.e., translates the canonical model into a device-specific representation.  This concept allows applying the same policy across a wide range of devices without needing to define multiple variants.  In other words - policy definition is de-coupled from policy instantiation and policy enforcement.  This enables operational scale and allows network operators and authors of policies to think in higher terms of abstraction than device specifics and be able to reuse the same, high-level definition across different networking domains, WAN, DC, or public cloud.  </p>
+<p id="rfc.section.4.2.2.p.5">PBNM is typically "push-based": Policies are pushed onto devices where they are rendered and enforced.  The push operations are conducted by a manager or controller, which is responsible for deploying policies across the network and monitor their proper operation.  That being said, other policy architectures are possible.  For example, policy-based management can also include a pull-component in which the decision regarding which action to take is delegated to a so-called Policy Decision Point (PDP).  This PDP can reside outside the managed device itself and has typically global visibility and context with which to make policy decisions.  Whenever a network device observes an event that is associated with a policy, but lacks the full definition of the policy or the ability to reach a conclusion regarding the expected action, it reaches out to the PDP for a decision (reached, for example, by deciding on an action based on various conditions).  Subsequently, the device carries out the decision as returned by the PDP - the device "enforces" the policy and hence acts as a PEP (Policy Enforcement Point).  Either way, PBNM architectures typically involve a central component from which policies are deployed across the network, and/or policy decisions served.  </p>
+<p id="rfc.section.4.2.2.p.6">Like Intent, policies provide a higher layer of abstraction.  Policy systems are also able to capture dynamic aspects of the system under management through the specification of rules that allow defining various triggers for specific courses of actions.  Unlike intent, the definition of those rules (and courses of actions) still needs to be articulated by users.  Since the intent is unknown, conflict resolution within or between policies requires interactions with a user or some kind of logic that resides outside of PBM.  </p>
+<h1 id="rfc.section.4.2.3">
+<a href="#rfc.section.4.2.3">4.2.3.</a> Distinguishing between Intent, Policy, and Service Models</h1>
+<p id="rfc.section.4.2.3.p.1">What Intent, Policy, and Service Models all have in common is the fact that they involve a higher-layer of abstraction of a network that does not involve device-specifics, that generally transcends individual devices, and that makes the network easier to manage for applications and human users compared to having to manage the network one device at a time.  Beyond that, differences emerge.  Service models have less in common with policy and intent than policy and intent do with each other.  </p>
+<p id="rfc.section.4.2.3.p.2">Summarized differences: </p>
+
+<ul>
+<li>A service model is a data model that is used to describe instances of services that are provided to customers.  A service model has dependencies on lower-level models (device and network models) when describing how the service is mapped onto underlying network and IT infrastructure.  Instantiating a service model requires orchestration by a system; the logic for how to orchestrate/manage/provide the service model, and how to map it onto underlying resources, is not included as part of the model itself.  </li>
+<li>Policy is a set of rules, typically modeled around a variation of events/conditions/actions, used to express simple control loops that can be rendered by devices, without requiring intervention by the outside system.  Policy lets users define what to do under what circumstances, but it does not specify the desired outcome.  </li>
+<li>Intent is a high-level, declarative goal that operates at the level of a network and services it provides, not individual devices.  It is used to define outcomes and high-level operational goals, without specifying how those outcomes and should be achieved or how goals should specifically be satisfied, and without the need to enumerate specific events, conditions, and actions.  Which algorithm or rules to apply can be automatically "learned/derived from intent" by the intent system.  In the context of autonomic networking, intent is ideally rendered by the network itself; also, the dissemination of intent across the network and any required coordination between nodes is resolved by the network without the need for external systems.  </li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.4.2.3.p.3">One analogy to capture the difference between policy and intent systems is that of Expert Systems and Learning Systems in the field of Artificial Intelligence.  Expert Systems operate on knowledge bases with rules that are supplied by users.  They are able to make automatic inferences based on those rules, but are not able to "learn" on their own.  Learning Systems (popularized by deep learning and neural networks), on the other hand, are able to learn without depending on user programming or articulation of rules.  However, they do require a learning or training phase, and explanations of actions that the system actually takes provide a different set of challenges.  </p>
+<h1 id="rfc.section.5">
+<a href="#rfc.section.5">5.</a> Principles</h1>
+<p id="rfc.section.5.p.1">The following operating principles allow characterizing the intent-based/-driven/-defined nature of a system.  </p>
+<p></p>
+
+<ol>
+<li>Single Source of Truth (SSoT) and Single Version/View of Truth (SVoT).  The SSoT is an essential component of an intent-based system as it enables several important operations. The set of validated intent expressions is the system's SSoT.  SSoT and the records of the operational states enable comparing the intended state and actual state of the system and determining drift between them.  SSoT and the drift information provide the basis for corrective actions. If the intent-based is equipped with prediction capabilities or means, it can further develop strategies to anticipate, plan, and pro-actively act on the diverging trends with the aim to minimize their impact.  Beyond providing a means for consistent system operation, SSoT also allows for better traceability to validate if/how the initial intent and associated business goals have been properly met, to evaluate the impacts of changes in the intent parameters and impacts and effects of the events occurring in the system.  <br> Single Version (or View) of Truth derives from the SSoT and can be used to perform other operations such as query, poll, or filter the measured and correlated information to create so-called "views". These views can serve the operators and/or the users of the intent-based system.  To create intents as single sources of truth, the intent-based system must follow well-specified and well-documented processes and models.  In other contexts <a href="#Lenrow15" class="xref">[Lenrow15]</a>, SSoT is also referred to as the invariance of the intent.  </li>
+<li>One-touch but not one-shot.  In an ideal intent-based system, the user expresses its intents in one form or another, and then the system takes over all subsequent operations (one-touch). A zero-touch approach could also be imagined in the case where the intent-based system has the capabilities or means to recognize intentions in any form of data.  However, the zero- or one-touch approach should not be mistaken the fact that reaching the state of a well-formed and valid intent expression is not a one-shot process. On the contrary, the interfacing between the user and the intent-based system could be designed as an interactive and iterative process.  Depending on the level of abstraction, the intent expressions will initially contain more or less implicit parts, and unprecise or unknown parameters and constraints. The role of the intent-based system is to parse, understand, and refine the intent expression to reach a well-formed and valid intent expression that can be further used by the system for the fulfillment and assurance operations.  An intent refinement process could use a combination of iterative steps involving the user to validate the proposed refined intent and to ask the user for clarifications in case some parameters or variables could not be deduced or learned by the means of the system itself.  In addition, the Intent-Based System will need to moderate between conflicting intent, helping users to properly choose between intent alternatives that may have different ramifications.  </li>
+<li>Autonomy and Supervision.  A desirable goal for an intent-based system is to offer a high degree of flexibility and freedom on both the user side and system side, e.g., by giving the user the ability to express intents using its own terms, by supporting different forms of expression of intents and being capable of refining the intent expressions to well-formed and exploitable expressions.  The dual principle of autonomy and supervision allows to operate a system that will have the necessary levels of autonomy to conduct its tasks and operations without requiring intervention of the user and taking its own decisions (within its areas of concern and span of control) as how to perform and meet the user expectations in terms of performance and quality, while at the same time providing the proper level of supervision to satisfy the user requirements for reporting and escalation of relevant information.  </li>
+<li>Learning. An intent-based system is a learning system.  By contrast to the  imperative type of system, such as Event-Condition-Action policy rules, where the user defines beforehand the expected behavior of the system to various events and conditions, in an intent-based system, the user only declares what the system should achieve and not how to achieve these goals.  There is thus a transfer of reasoning/rationality from the human (domain knowledge) to the system. This transfer of cognitive capability also implies the availability in the intent-based system of capabilities or means for learning, reasoning, and knowledge representation and management.  The learning abilities of an intent-based systems can apply to different tasks such as optimization of the intent rendering or intent refinement processes.  The fact that an intent-based system is a continuously evolving system creates the condition for continuous learning and optimization. Other cognitive capabilities such as planning can also be leveraged in an intent-based system to anticipate or forecast future system state and response to changes in intents or network conditions and thus elaboration of plans to accommodate the changes while preserving system stability and efficiency in a trade-off with cost and robustness of operations.  Cope with unawareness of users (smart recommendations).  </li>
+<li>Capability exposure. Capability exposure consists in the need for expressive network capabilities, requirements, and constraints to be able to compose/decompose intents and map the user&#8217;s expectations to the system capabilities.  </li>
+<li>Abstraction.  Users do not need to be concerned with how intent is achieved  and are empowered to think in terms of outcomes.  In addition, they do can refer to concepts at a higher level of abstractions, independent e.g. of vendor-specific renderings.  </li>
+</ol>
+<p id="rfc.section.5.p.3">Additional principles will be described in future revision of this document addressing aspects such as: Intent target being groups of devices and not individual devices; agnostic to implementation details; user-friendly; user vocabulary vs. language of the device/network; explainability; validation and troubleshooting; how to resolve and point out conflicts (between intents); reconcile the reality of what is possible with the fiction of what the user would want, "moderate", awareness of operating within system boundaries; outcome-driven ((what not how, for the user);(what and how/where, for the operator).not imperative/instruction based.).  </p>
+<p id="rfc.section.5.p.4">The above principles will be further used to understand implications on the design of intent-based systems and their supporting architecture, and derive functional and operational requirements.</p>
+<h1 id="rfc.section.6">
+<a href="#rfc.section.6">6.</a> <a href="#Functionality" id="Functionality">Intent-Based Networking - Functionality</a>
+</h1>
+<p id="rfc.section.6.p.1">Intent-Based Networking involves a wide variety of functions which can be roughly divided into two categories: </p>
+
+<ul>
+<li>Intent Fulfillment provides functions and interfaces that allow users to communicate intent to the network, and that perform the necessary actions to ensure that intent is achieved.  This includes algorithms to determine proper courses of action and functions that learn to optimize outcomes over time.  In addition, it also includes more traditional functions such as any required orchestration of coordinated configuration operations across the network and rendering of higher-level abstractions into lower-level parameters and control knobs.  </li>
+<li>Intent Assurance provides functions and interfaces that allow users to validate and monitor that the network is indeed adhering to and complying with intent.  This is necessary to assess the effectiveness of actions taken as part of fulfillment, providing important feedback that allows those functions to be trained or tuned over time to optimize outcomes.  In addition, Intent Assurance is necessary to address "intent drift".  Intent drift occurs when a system originally meets the intent, but over time gradually allows its behavior to change or be affected until it no longer does, or does so in a less effective manner.  </li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.6.p.2">The following sections provide a more comprehensive overview of those functions.  </p>
+<h1 id="rfc.section.6.1">
+<a href="#rfc.section.6.1">6.1.</a> Intent Fulfillment</h1>
+<p id="rfc.section.6.1.p.1">Intent fulfillment is concerned with the functions that take intent from its origination by a user (generally, an administrator of the responsible organization) to its realization in the network.  This includes: </p>
+
+<ul>
+<li>Functions that recognize intent from interaction with the user and functions that allow users to refine their intent and articulate it in such ways so that it becomes actionable by an Intent-Based System.  Those functions can involve unconventional human-machine interactions, in which a human will not simply give simple commands, but which may involve a human-machine dialog to provide clarifications, to explain ramifications and trade-offs, and to facilitate refinements. </li>
+<li>Functions that translate user intent into courses of actions and requests to take against the network, which will be meaningful to network configuration and provisioning systems.  As an option,those functions can be complemented with functions and algorithms that optimize the courses of actions and that are able to learn and improve over time in order to result in the best outcomes, specifically in cases where multiple ways of achieving those outcomes are conceivable.  </li>
+<li>Functions that perform and orchestrate the configuration and provisioning steps that were determined by the previous intent translation step. </li>
+</ul>
+
+<p> </p>
+<h1 id="rfc.section.6.2">
+<a href="#rfc.section.6.2">6.2.</a> Intent Assurance</h1>
+<p id="rfc.section.6.2.p.1">Assurance is concerned with the functions that are necessary to ensure that the network indeed complies with the desired intent once it has been fulfilled.  This includes: </p>
+
+<ul>
+<li>Functions that monitor and observe the network and its exhibited behavior. </li>
+<li>Functions that assess and validate whether the observation indicates compliance with intent, and that recognize intent drift.  This can include functions that perform analysis and aggregation of raw observation data.  <br><br><br> Intent drift can be caused by control plane or lower-level management operations that inadvertently cause behavior changes which conflict with intent which was orchestrated earlier.  Intent-Based Systems and Networks need to be able to detect when such drift occurs or is about to occur.  </li>
+<li>Functions that trigger corrective action as needed. This includes actions needed to resolve intent drift and bring the network back into compliance.   Alternatively and where necessary, reporting functions need to be triggered that alert operators and provide them with the necessary information and tools to react appropriately, e.g. by helping them articulate modifications to the original intent to moderate between conflicting concerns.</li>
+<li>Functions that abstract the observations and analysis results in a way that makes it possible for users to relate them to intent.  In many cases, lower-level concepts such as detailed performance statistics and observations related to low-level settings need to be "up-leveled" to concepts the user can relate to and take action on.</li>
+<li>Functions that report intent compliance status and that provide adequate summarization and visualization to the user.</li>
+</ul>
+
+<p> </p>
+<h1 id="rfc.section.7">
+<a href="#rfc.section.7">7.</a> Life-cycle</h1>
+<p id="rfc.section.7.p.1">Intent is subject to a life-cycle: it comes into being, may undergo changes over the course of time, and may at some point be retracted.  This life-cycle is closely tied to various interconnection functions that are associated with the intent concept.  </p>
+<p><a href="#Fig_Lifecycle" class="xref">Figure 1</a> depicts an intent life-cycle and its main functions.  The functions were introduced in <a href="#Functionality" class="xref">Section 6</a> and are divided into two functional (horizontal) planes, reflecting the distinction between fulfillment and assurance.  In addition, they are divided into three (vertical) spaces.  </p>
+<p id="rfc.section.7.p.3">The spaces indicate the different perspectives and interactions with different roles that are involved in addressing the functions: </p>
+
+<ul>
+<li>The user space involves the functions that interface the network and intent-based system with the human user.  It involves the functions that allow users to articulate and the intent-based system to recognize that intent.  It also involves the functions that report back the status of the network relative to the intent and that allow users to assess whether their intent has the desired effect.</li>
+<li>The translation or Intent-Based System (IBS) space involves the functions that bridge the gap between intent users and network operations.  This includes the functions used to translate an intent into a course of action, the algorithms used to plan and optimize those courses of actions also in consideration of feedback, the functions to analyze and abstract observations to validate compliance with the intent and take corrective actions as necessary.</li>
+<li>The Network Operations space, finally, involves the traditional orchestration, configuration, monitoring, and measurement functions, which are used to effectuate the rendered intent and observe its effects on the network.</li>
+</ul>
+
+<p> </p>
+<div id="rfc.figure.1"></div>
+<div id="Fig_Lifecycle"></div>
+<pre>
+
+
+         User Space   :       Translation / IBS        :  Network Ops
+                      :            Space               :     Space
+                      :                                :
+        +----------+   :  +----------+   +-----------+  :  +-----------+
+Fulfill |recognize/| ---&gt; |translate/|--&gt;|  learn/   | --&gt; | configure/|
+        |generate  |      |          |   |  plan/    |     | provision |
+        |intent    | &lt;--- |  refine  |   |  render   |  :  |           |
+        +----^-----+   :  +----------+   +-----^-----+  :  +-----------+
+             |        :                       |        :        |
+.............|................................|.................|....
+             |        :                  +----+---+    :        v
+             |        :                  |validate|    : +----------+
+             |        :                  +----^---+ &lt;----| monitor/ |
+Assure   +---+---+    :  +---------+    +-----+---+    : | observe/ |
+         |report | &lt;---- |abstract |&lt;---| analyze | &lt;----+----------+ 
+         +-------+    :  +---------+    |aggregate|    : 
+                      :                 +---------+    :
+
+</pre>
+<p class="figure">Figure 1: Intent Life-cycle</p>
+<p></p>
+<p id="rfc.section.7.p.5">When carefully inspecting the diagram, it becomes apparent that the intent life-cycle, in fact, involves two cycles, or loops: </p>
+
+<ul>
+<li>The "inner" intent control loop between IBS and Network Operations space is completely automated and does not involve any human in the loop.  It involves automatic analysis and validation of intent based on observations from the network operations space.  Those observations are fed into the function that plans the rendering of networking intent in order to make adjustments as needed in the configuration of the network.  </li>
+<li>The "outer" intent control loop involves the user space and includes the user taking action and adjusting their intent based on feedback from the IBS.</li>
+</ul>
+
+<p> </p>
+<h1 id="rfc.section.8">
+<a href="#rfc.section.8">8.</a> Items for Discussion</h1>
+<p id="rfc.section.8.p.1">Arguably, given the popularity of the term "intent", its use could be broadened to encompass also known concepts ("intent-washing").  For example, it is conceivable to introduce intent-based terms for various concepts that, although already known, are related to the context of intent.  Each of those terms could then designate an intent subcategory, for example: </p>
+
+<ul>
+<li>Operational Intent: defines intent related to operational goals of an operator; corresponds to the original "intent" term.  </li>
+<li>Rule Intent: a synonym for policy rules regarding what to do when certain events occur.  </li>
+<li>Service intent: a synonym for customer service model <a href="#RFC8309" class="xref">[RFC8309]</a>.  </li>
+<li>Flow Intent: A synonym for a Service Level Objective for a given flow.  </li>
+</ul>
+
+<p> Whether to do so is an item for discussion by the Research Group.  </p>
+<h1 id="rfc.section.9">
+<a href="#rfc.section.9">9.</a> IANA Considerations</h1>
+<p id="rfc.section.9.p.1">Not applicable </p>
+<h1 id="rfc.section.10">
+<a href="#rfc.section.10">10.</a> Security Considerations</h1>
+<p id="rfc.section.10.p.1">This document describes concepts and definitions of Intent-based Networking. As such, the below security considerations remain high level, i.e. in the form of principles, guidelines or requirements. More detailed security considerations will be described in the documents that specify the architecture and functionality.</p>
+<p id="rfc.section.10.p.2">Security in Intent-based Networking can apply to different facets: </p>
+
+<ul>
+<li>Securing the intent-based system itself.</li>
+<li>Mitigating the effects of erroneous, harmful or compromised intents.</li>
+<li>Expressing security policies or security-related parameters with intents.</li>
+</ul>
+<p id="rfc.section.10.p.3">Securing the intent-based system aims at making the intent-based system operationally secure by implementing security mechanisms and applying security best practices. In the context of Intent-based Networking, such mechanisms and practices may consist in intent verification and validation; operations on intents by authenticated and authorized users only; protection against or detection of tampered intents.  Such mechanisms may also include the introduction of multiple levels of intent. For example, intent related to securing the network should occur at a "deeper" level that overrides other levels of intent if necessary, and that is not subject to modification through regular operations but through ones that are specifically secured.  Use of additional mechanisms such as explanation components that describe the security ramifications and trade-off should be considered as well.</p>
+<p id="rfc.section.10.p.4">Mitigating the effects of erroneous or compromised intents aims at making the intent-based system operationally safe by providing checkpoint and safeguard mechanisms and operating principles. In the context of Intent-based Networking, such mechanisms and principles may consist in the ability to automatically detect unintended, detrimental or abnormal behavior; the ability to automatically (and gracefully) rollback or fallback to a previous "safe" state; the ability to prevent or contain error amplification (due to the combination of higher degree of automation and the intrinsic higher degree of freedom, ambiguity, and implicit conveyed by intents); dynamic levels of supervision and reporting to make the user aware of the right information, at the right time with the right level of context.  Erroneous or harmful intents may inadvertently propagate and compromise security. In addition, compromised intents, for example intent forged by an inside attacker, may sabotage or harm the network resources and make them vulnerable to further, larger attacks, e.g. by defeating certain security mechanisms.</p>
+<p id="rfc.section.10.p.5">Expressing security policies or security-related parameters with intents consists in using the intent formalism (a high-level, declarative abstraction), or part(s) of an intent statement to define security-related aspects such as data governance, level(s) of confidentiality in data exchange, level(s) of availability of system resources, of protection in forwarding paths, of isolation in processing functions, level(s) of encryption, authorized entities for given operations, etc.</p>
+<p id="rfc.section.10.p.6">The development and introduction of Intent-Based Networking in operational environments will certainly create new security concerns. Such security concerns have to be anticipated at the design and specification time. However, Intent-Based Networking may also be used as an enabler for better security. For instance, security and privacy rules could be expressed in more human-friendly and generic way and be less technology-specific and less complex, leading to fewer low-level configuration mistakes. The detection of threats or attacks could also be made more simple and comprehensive thanks to conflict detection at higher-level or at coarser granularity</p>
+<p id="rfc.section.10.p.7">More thorough security analyses should be conducted as our understanding of Intent-Based Networking technology matures.  </p>
+<h1 id="rfc.references">
+<a href="#rfc.references">11.</a> References</h1>
+<h1 id="rfc.references.1">
+<a href="#rfc.references.1">11.1.</a> Normative References</h1>
+<table><tbody>
+<tr>
+<td class="reference"><b id="RFC2119">[RFC2119]</b></td>
+<td class="top">
+<a>Bradner, S.</a>, "<a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC8174">[RFC8174]</b></td>
+<td class="top">
+<a>Leiba, B.</a>, "<a href="https://tools.ietf.org/html/rfc8174">Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</a>", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017.</td>
+</tr>
+</tbody></table>
+<h1 id="rfc.references.2">
+<a href="#rfc.references.2">11.2.</a> Informative References</h1>
+<table><tbody>
+<tr>
+<td class="reference"><b id="Boutaba07">[Boutaba07]</b></td>
+<td class="top">
+<a>Boutaba, R.</a> and <a>I. Aib</a>, "<a>Policy-Based Management: A Historical perspective. Journal of Network and Systems Management (JNSM), Springer, Vol. 15 (4).</a>", December 2007.</td>
+</tr>
+<tr>
+<td class="reference"><b id="I-D.ietf-teas-te-service-mapping-yang">[I-D.ietf-teas-te-service-mapping-yang]</b></td>
+<td class="top">
+<a>Lee, Y.</a>, <a>Dhody, D.</a>, <a>Fioccola, G.</a>, <a>WU, Q.</a>, <a>Ceccarelli, D.</a> and <a>J. Tantsura</a>, "<a href="https://tools.ietf.org/html/draft-ietf-teas-te-service-mapping-yang-03">Traffic Engineering (TE) and Service Mapping Yang Model</a>", Internet-Draft draft-ietf-teas-te-service-mapping-yang-03, March 2020.</td>
+</tr>
+<tr>
+<td class="reference"><b id="Lenrow15">[Lenrow15]</b></td>
+<td class="top">
+<a>Lenrow, D.</a>, "<a>Intent As The Common Interface to Network Resources, Intent Based Network Summit 2015 ONF Boulder: IntentNBI</a>", February 2015.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC7575">[RFC7575]</b></td>
+<td class="top">
+<a>Behringer, M.</a>, <a>Pritikin, M.</a>, <a>Bjarnason, S.</a>, <a>Clemm, A.</a>, <a>Carpenter, B.</a>, <a>Jiang, S.</a> and <a>L. Ciavaglia</a>, "<a href="https://tools.ietf.org/html/rfc7575">Autonomic Networking: Definitions and Design Goals</a>", RFC 7575, DOI 10.17487/RFC7575, June 2015.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC8299">[RFC8299]</b></td>
+<td class="top">
+<a>Wu, Q.</a>, <a>Litkowski, S.</a>, <a>Tomotaki, L.</a> and <a>K. Ogaki</a>, "<a href="https://tools.ietf.org/html/rfc8299">YANG Data Model for L3VPN Service Delivery</a>", RFC 8299, DOI 10.17487/RFC8299, January 2018.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC8309">[RFC8309]</b></td>
+<td class="top">
+<a>Wu, Q.</a>, <a>Liu, W.</a> and <a>A. Farrel</a>, "<a href="https://tools.ietf.org/html/rfc8309">Service Models Explained</a>", RFC 8309, DOI 10.17487/RFC8309, January 2018.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC8345">[RFC8345]</b></td>
+<td class="top">
+<a>Clemm, A.</a>, <a>Medved, J.</a>, <a>Varga, R.</a>, <a>Bahadur, N.</a>, <a>Ananthakrishnan, H.</a> and <a>X. Liu</a>, "<a href="https://tools.ietf.org/html/rfc8345">A YANG Data Model for Network Topologies</a>", RFC 8345, DOI 10.17487/RFC8345, March 2018.</td>
+</tr>
+<tr>
+<td class="reference"><b id="Sloman94">[Sloman94]</b></td>
+<td class="top">
+<a>Sloman, M.</a>, "<a>Policy Driven Management for Distributed Systems. Journal of Network and Systems Management (JNSM), Springer, Vol. 2 (4).</a>", December 1994.</td>
+</tr>
+<tr>
+<td class="reference"><b id="Strassner03">[Strassner03]</b></td>
+<td class="top">
+<a>Strassner, J.</a>, "<a>Policy-Based Network Management.  Elsevier.</a>", 2003.</td>
+</tr>
+<tr>
+<td class="reference"><b id="TR523">[TR523]</b></td>
+<td class="top">
+<a>Foundation, O. N.</a>, "<a>Intent NBI - Definition and Principles. ONF TR-523.</a>", October 2016.</td>
+</tr>
+</tbody></table>
+<h1 id="rfc.authors"><a href="#rfc.authors">Authors' Addresses</a></h1>
+<div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Alexander Clemm</span> 
+	  <span class="n hidden">
+		<span class="family-name">Clemm</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Futurewei</span>
+	<span class="adr">
+	  <span class="vcardline">2330 Central Expressway</span>
+
+	  <span class="vcardline">
+		<span class="locality">Santa Clara,</span>,  
+		<span class="region"></span>
+		<span class="code">CA 95050</span>
+	  </span>
+	  <span class="country-name vcardline">USA</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:ludwig@clemm.org">ludwig@clemm.org</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Laurent Ciavaglia</span> 
+	  <span class="n hidden">
+		<span class="family-name">Ciavaglia</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Nokia</span>
+	<span class="adr">
+	  <span class="vcardline">Route de Villejust</span>
+
+	  <span class="vcardline">
+		<span class="locality">Nozay</span>,  
+		<span class="region"></span>
+		<span class="code">91460</span>
+	  </span>
+	  <span class="country-name vcardline">FR</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:laurent.ciavaglia@nokia.com">laurent.ciavaglia@nokia.com</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Lisandro Zambenedetti Granville</span> 
+	  <span class="n hidden">
+		<span class="family-name">Granville</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Federal University of Rio Grande do Sul (UFRGS)</span>
+	<span class="adr">
+	  <span class="vcardline">Av. Bento Gon&#231;alves</span>
+
+	  <span class="vcardline">
+		<span class="locality">Porto Alegre</span>,  
+		<span class="region"></span>
+		<span class="code">9500</span>
+	  </span>
+	  <span class="country-name vcardline">BR</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:granville@inf.ufrgs.br">granville@inf.ufrgs.br</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Jeff Tantsura</span> 
+	  <span class="n hidden">
+		<span class="family-name">Tantsura</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Apstra, Inc.</span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:jefftant.ietf@gmail.com">jefftant.ietf@gmail.com</a></span>
+
+  </address>
+</div>
+
+</body>
+</html>
