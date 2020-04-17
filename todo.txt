@@ -1,7 +1,8 @@
 todo list - draft-irtf-nmrg-ibn-concepts-definitions
 
 . Integrate comments received on mailing list (Juergen, Will, Jérôme...)
-. Integrate detailed review from Lisandro
+
+(done in -01). Integrate detailed review from Lisandro
 
 (Laurent)
 . Shorten introduction and more clear, logical flow. What do we want to say in the introduction, liaison between main points. Add relevant references.  a few nits to correct. And remove reference to research challenges (out of the ID in -01)
@@ -14,15 +15,15 @@ todo list - draft-irtf-nmrg-ibn-concepts-definitions
 . (new) Section on IBN Concepts and Principles
   Incl. Main goals. What problems the IBN vision is trying to address. (short Problem statement/contextualization)
 
-. Rename section on Lifecycle to Theory of Operation
+. Rename section on "Lifecycle" to "Theory of Operation" (ToOps)
   Consolidate in single diagram. Check that the diagram is "complete" and good enough.
 
-. New section on Lifecycle
+. New section on "Lifecycle"
   Intent states: declared (listed but no execution logic); defined (has execution logic); supported (can be executed); active (deployed to network/ under execution) + other states: on-hold? Decommissioned?
   Are states exclusive or could be cumulative (e.g. observed and active), some conditional…
 
 (partly done in -01 by Alex). Provide more content on functionality section (merge 7 and 6)(partly done in -01 by Alex)
-  Description of each ToOps/lifecycle steps. Extract proto-requirements? (towards ID on architecture)
+  Description of each ToOps/lifecycle steps. Extract proto-requirements? (towards ID on architecture?)
 
 (done in -01). Provide content for Security Considerations (done in -01)
   Compromised intent generate detrimental effects at scale because automation 
