@@ -11,13 +11,13 @@ todo list - draft-irtf-nmrg-ibn-concepts-definitions
 . (new) Section on IBN Concepts and Principles
   Incl. Main goals. What problems the IBN vision is trying to address. (short Problem statement/contextualization)
 . Rename section on Lifecycle to Theory of Operation 
-  Consolidate in single diagram.
+  Consolidate in single diagram. Check that the diagram is "complete" and good enough.
 . New section on Lifecycle
   Intent states: declared (listed but no execution logic); defined (has execution logic); supported (can be executed); active (deployed to network/ under execution) + other states: on-hold? Decommissioned? + cf altiplano presentation
   Are states exclusive or could be cumulative (e.g. observed and active), some conditional…
-. Provide more content on functionality section (merge 7 and 6)(partly done in -03 by Alex)
-  Description of each ToOps/lifecycle steps. Requirements? (towards ID on architecture)
-. Provide content for Security Considerations
+. Provide more content on functionality section (merge 7 and 6)(partly done in -01 by Alex)
+  Description of each ToOps/lifecycle steps. Extract proto-requirements? (towards ID on architecture)
+. Provide content for Security Considerations (done in -01)
   Compromised intent generate detrimental effects at scale because automation 
   Provide means to contain impact and minimize surface attacks 
   Safeguards in lifecycle to verify and roll back, report, rule out harmful intents
