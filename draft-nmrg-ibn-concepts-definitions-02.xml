@@ -69,7 +69,7 @@
 		<email>jefftant.ietf@gmail.com</email>
 	</address>
 </author>
-<date month="March" year="2020" />
+<date month="September" year="2020" />
 
 <abstract>
 	<t>
@@ -315,7 +315,7 @@ However, they do require a learning or training phase, and explanations of actio
 
 <section title="Principles">
 <t>
-The following operating principles allow characterizing the intent-based/-driven/-defined nature of a system. 
+The following main operating principles allow characterizing the intent-based/-driven/-defined nature of a system. 
 </t>
 <t><list style="numbers">
 <t> Single Source of Truth (SSoT) and Single Version/View of Truth (SVoT). 
@@ -354,15 +354,24 @@ Cope with unawareness of users (smart recommendations).
 <t> Capability exposure. Capability exposure consists in the need for expressive network capabilities, requirements, and constraints to be able to compose/decompose intents and map the user’s expectations to the system capabilities. 
 </t>
 
-<t>Abstraction.  Users do not need to be concerned with how intent is achieved  and are empowered to think in terms of outcomes.  In addition, they do can refer to concepts at a higher level of abstractions, independent e.g. of vendor-specific renderings.  
+<t>Abstract and outcome-driven.  Users do not need to be concerned with how intent is achieved  and are empowered to think in terms of outcomes.  In addition, they do can refer to concepts at a higher level of abstractions, independent e.g. of vendor-specific renderings.  
 </t>
 </list>
 </t>
 <t> 
-Additional principles will be described in future revision of this document addressing aspects such as: Intent target being groups of devices and not individual devices; agnostic to implementation details; user-friendly; user vocabulary vs. language of the device/network; explainability; validation and troubleshooting; how to resolve and point out conflicts (between intents); reconcile the reality of what is possible with the fiction of what the user would want, "moderate", awareness of operating within system boundaries; outcome-driven ((what not how, for the user);(what and how/where, for the operator).not imperative/instruction based.).
+The described principles are perhaps the most prominent, but they are not an exhaustive list. There are additional aspects to consider, such as: 
+<list style="symbols">
+<t>
+Intent targets are not individual devices but typically aggregations (such as groups of devices adhering to a common criteria, such as devices of a particular role) or abstractions (such as service types, service instances, topologies)
+</t>
+<t>Abstraction and inherent virtualization: agnostic to implementation details</t>
+<t>Human-tailored network interaction: IBN SHOULD speak the language of the user as opposed to requiring the user to speak the language of the device/network</t>
+<t>Explainability as an important IBN function, detection and IBN-aided resolution of conflicting intent, reconciliation of what the user wants and what the network can actually do </t>
+<t>Inherent support, verification, and assurance of trust</t>   
+</list>
 </t> 
 <t>
-The above principles will be further used to understand implications on the design of intent-based systems and their supporting architecture, and derive functional and operational requirements.
+All of these principles and considerations have implications on the design of intent-based systems and their supporting architecture and need to be considered when deriving functional and operational requirements.
 </t>
 </section>
 
@@ -459,23 +468,23 @@ The Network Operations space, finally, involves the traditional orchestration, c
 <artwork>
 <![CDATA[
 
-         User Space   :       Translation / IBS        :  Network Ops
-                      :            Space               :     Space
-                      :                                :
+         User Space   :       Translation / IBS       :  Network Ops
+                      :            Space              :     Space
+                      :                               :
         +----------+  :  +----------+   +-----------+ : +-----------+
 Fulfill |recognize/|---> |translate/|-->|  learn/   |-->| configure/|
         |generate  |     |          |   |  plan/    |   | provision |
         |intent    |<--- |  refine  |   |  render   | : |           |
         +----^-----+  :  +----------+   +-----^-----+ : +-----------+
-             |        :                       |        :        |
-.............|................................|.................|....
-             |        :                  +----+---+    :        v
-             |        :                  |validate|    : +----------+
+             |        :                       |       :        |
+.............|................................|................|.....
+             |        :                  +----+---+   :        v
+             |        :                  |validate|   :  +----------+
              |        :                  +----^---+ <----| monitor/ |
-Assure   +---+---+    :  +---------+    +-----+---+    : | observe/ |
-         |report | <---- |abstract |<---| analyze | <----+----------+ 
-         +-------+    :  +---------+    |aggregate|    : 
-                      :                 +---------+    :
+Assure   +---+---+    :  +---------+    +-----+---+   :  | observe/ |
+         |report | <---- |abstract |<---| analyze | <----|          | 
+         +-------+    :  +---------+    |aggregate|   :  +----------+
+                      :                 +---------+   :
 ]]>
 </artwork>
 </figure>

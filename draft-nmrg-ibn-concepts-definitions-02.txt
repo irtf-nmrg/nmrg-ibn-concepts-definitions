@@ -5,12 +5,12 @@
 Network Working Group                                           A. Clemm
 Internet-Draft                                                 Futurewei
 Intended status: Informational                              L. Ciavaglia
-Expires: September 2, 2020                                         Nokia
+Expires: March 19, 2021                                            Nokia
                                                             L. Granville
                          Federal University of Rio Grande do Sul (UFRGS)
                                                              J. Tantsura
                                                             Apstra, Inc.
-                                                           March 1, 2020
+                                                      September 15, 2020
 
 
            Intent-Based Networking - Concepts and Definitions
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 2, 2020.
+   This Internet-Draft will expire on March 19, 2021.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Clemm, et al.           Expires September 2, 2020               [Page 1]
+Clemm, et al.            Expires March 19, 2021                 [Page 1]
 
-Internet-Draft                                                March 2020
+Internet-Draft                                            September 2020
 
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Clemm, et al.           Expires September 2, 2020               [Page 2]
+Clemm, et al.            Expires March 19, 2021                 [Page 2]
 
-Internet-Draft                                                March 2020
+Internet-Draft                                            September 2020
 
 
    prime example of this is SNMP-based management and the 200+ MIBs that
@@ -165,9 +165,9 @@ Internet-Draft                                                March 2020
 
 
 
-Clemm, et al.           Expires September 2, 2020               [Page 3]
+Clemm, et al.            Expires March 19, 2021                 [Page 3]
 
-Internet-Draft                                                March 2020
+Internet-Draft                                            September 2020
 
 
    devices and low-level configurations.  In this sense, the vision of
@@ -221,9 +221,9 @@ Internet-Draft                                                March 2020
 
 
 
-Clemm, et al.           Expires September 2, 2020               [Page 4]
+Clemm, et al.            Expires March 19, 2021                 [Page 4]
 
-Internet-Draft                                                March 2020
+Internet-Draft                                            September 2020
 
 
       IBA: Intent-Based Analytics - Analytics that are defined and
@@ -277,9 +277,9 @@ Internet-Draft                                                March 2020
 
 
 
-Clemm, et al.           Expires September 2, 2020               [Page 5]
+Clemm, et al.            Expires March 19, 2021                 [Page 5]
 
-Internet-Draft                                                March 2020
+Internet-Draft                                            September 2020
 
 
    automatically knowing particular operational goals nor what instances
@@ -333,9 +333,9 @@ Internet-Draft                                                March 2020
 
 
 
-Clemm, et al.           Expires September 2, 2020               [Page 6]
+Clemm, et al.            Expires March 19, 2021                 [Page 6]
 
-Internet-Draft                                                March 2020
+Internet-Draft                                            September 2020
 
 
    action.  Ideally, it should not even be orchestrated or broken down
@@ -389,9 +389,9 @@ Internet-Draft                                                March 2020
 
 
 
-Clemm, et al.           Expires September 2, 2020               [Page 7]
+Clemm, et al.            Expires March 19, 2021                 [Page 7]
 
-Internet-Draft                                                March 2020
+Internet-Draft                                            September 2020
 
 
 4.2.  Related Concepts
@@ -445,9 +445,9 @@ Internet-Draft                                                March 2020
 
 
 
-Clemm, et al.           Expires September 2, 2020               [Page 8]
+Clemm, et al.            Expires March 19, 2021                 [Page 8]
 
-Internet-Draft                                                March 2020
+Internet-Draft                                            September 2020
 
 
    to the device.  In addition to instantiating and creating new
@@ -501,9 +501,9 @@ Internet-Draft                                                March 2020
 
 
 
-Clemm, et al.           Expires September 2, 2020               [Page 9]
+Clemm, et al.            Expires March 19, 2021                 [Page 9]
 
-Internet-Draft                                                March 2020
+Internet-Draft                                            September 2020
 
 
    of existing literature, which includes this and many other
@@ -557,9 +557,9 @@ Internet-Draft                                                March 2020
 
 
 
-Clemm, et al.           Expires September 2, 2020              [Page 10]
+Clemm, et al.            Expires March 19, 2021                [Page 10]
 
-Internet-Draft                                                March 2020
+Internet-Draft                                            September 2020
 
 
    operation.  That being said, other policy architectures are possible.
@@ -613,9 +613,9 @@ Internet-Draft                                                March 2020
 
 
 
-Clemm, et al.           Expires September 2, 2020              [Page 11]
+Clemm, et al.            Expires March 19, 2021                [Page 11]
 
-Internet-Draft                                                March 2020
+Internet-Draft                                            September 2020
 
 
       orchestration by a system; the logic for how to
@@ -659,8 +659,8 @@ Internet-Draft                                                March 2020
 
 5.  Principles
 
-   The following operating principles allow characterizing the intent-
-   based/-driven/-defined nature of a system.
+   The following main operating principles allow characterizing the
+   intent-based/-driven/-defined nature of a system.
 
    1.  Single Source of Truth (SSoT) and Single Version/View of Truth
        (SVoT).  The SSoT is an essential component of an intent-based
@@ -669,9 +669,9 @@ Internet-Draft                                                March 2020
 
 
 
-Clemm, et al.           Expires September 2, 2020              [Page 12]
+Clemm, et al.            Expires March 19, 2021                [Page 12]
 
-Internet-Draft                                                March 2020
+Internet-Draft                                            September 2020
 
 
        records of the operational states enable comparing the intended
@@ -725,9 +725,9 @@ Internet-Draft                                                March 2020
 
 
 
-Clemm, et al.           Expires September 2, 2020              [Page 13]
+Clemm, et al.            Expires March 19, 2021                [Page 13]
 
-Internet-Draft                                                March 2020
+Internet-Draft                                            September 2020
 
 
    3.  Autonomy and Supervision.  A desirable goal for an intent-based
@@ -775,34 +775,46 @@ Internet-Draft                                                March 2020
        constraints to be able to compose/decompose intents and map the
        user's expectations to the system capabilities.
 
-   6.  Abstraction.  Users do not need to be concerned with how intent
-       is achieved and are empowered to think in terms of outcomes.  In
+   6.  Abstract and outcome-driven.  Users do not need to be concerned
+       with how intent is achieved and are empowered to think in terms
+       of outcomes.  In addition, they do can refer to concepts at a
 
 
 
-
-Clemm, et al.           Expires September 2, 2020              [Page 14]
+Clemm, et al.            Expires March 19, 2021                [Page 14]
 
-Internet-Draft                                                March 2020
+Internet-Draft                                            September 2020
 
 
-       addition, they do can refer to concepts at a higher level of
-       abstractions, independent e.g. of vendor-specific renderings.
+       higher level of abstractions, independent e.g. of vendor-specific
+       renderings.
 
-   Additional principles will be described in future revision of this
-   document addressing aspects such as: Intent target being groups of
-   devices and not individual devices; agnostic to implementation
-   details; user-friendly; user vocabulary vs. language of the device/
-   network; explainability; validation and troubleshooting; how to
-   resolve and point out conflicts (between intents); reconcile the
-   reality of what is possible with the fiction of what the user would
-   want, "moderate", awareness of operating within system boundaries;
-   outcome-driven ((what not how, for the user);(what and how/where, for
-   the operator).not imperative/instruction based.).
+   The described principles are perhaps the most prominent, but they are
+   not an exhaustive list.  There are additional aspects to consider,
+   such as:
 
-   The above principles will be further used to understand implications
-   on the design of intent-based systems and their supporting
-   architecture, and derive functional and operational requirements.
+   o  Intent targets are not individual devices but typically
+      aggregations (such as groups of devices adhering to a common
+      criteria, such as devices of a particular role) or abstractions
+      (such as service types, service instances, topologies)
+
+   o  Abstraction and inherent virtualization: agnostic to
+      implementation details
+
+   o  Human-tailored network interaction: IBN SHOULD speak the language
+      of the user as opposed to requiring the user to speak the language
+      of the device/network
+
+   o  Explainability as an important IBN function, detection and IBN-
+      aided resolution of conflicting intent, reconciliation of what the
+      user wants and what the network can actually do
+
+   o  Inherent support, verification, and assurance of trust
+
+   All of these principles and considerations have implications on the
+   design of intent-based systems and their supporting architecture and
+   need to be considered when deriving functional and operational
+   requirements.
 
 6.  Intent-Based Networking - Functionality
 
@@ -822,6 +834,14 @@ Internet-Draft                                                March 2020
    o  Intent Assurance provides functions and interfaces that allow
       users to validate and monitor that the network is indeed adhering
       to and complying with intent.  This is necessary to assess the
+
+
+
+Clemm, et al.            Expires March 19, 2021                [Page 15]
+
+Internet-Draft                                            September 2020
+
+
       effectiveness of actions taken as part of fulfillment, providing
       important feedback that allows those functions to be trained or
       tuned over time to optimize outcomes.  In addition, Intent
@@ -832,15 +852,6 @@ Internet-Draft                                                March 2020
 
    The following sections provide a more comprehensive overview of those
    functions.
-
-
-
-
-
-Clemm, et al.           Expires September 2, 2020              [Page 15]
-
-Internet-Draft                                                March 2020
-
 
 6.1.  Intent Fulfillment
 
@@ -879,6 +890,14 @@ Internet-Draft                                                March 2020
 
    Beyond merely breaking down a higher layer of abstraction (intent)
    into a lower layer of abstraction (policies, device configuration),
+
+
+
+Clemm, et al.            Expires March 19, 2021                [Page 16]
+
+Internet-Draft                                            September 2020
+
+
    Intent Translation functions can be complemented with functions and
    algorithms that perform optimizations and that are able to learn and
    improve over time in order to result in the best outcomes,
@@ -888,15 +907,6 @@ Internet-Draft                                                March 2020
    configured across the network.  Heuristics and algorithms to do so
    may evolve over time to optimize outcomes which may depend a myriad
    of dynamic network conditions and context.
-
-
-
-
-
-Clemm, et al.           Expires September 2, 2020              [Page 16]
-
-Internet-Draft                                                March 2020
-
 
 6.1.3.  Intent Orchestration
 
@@ -935,24 +945,21 @@ Internet-Draft                                                March 2020
    can be fed back to facilitate learning functions that optimize
    outcomes.
 
+
+
+
+
+Clemm, et al.            Expires March 19, 2021                [Page 17]
+
+Internet-Draft                                            September 2020
+
+
    Intent compliance assessment also includes assessing whether intent
    drift occurs over time.  Intent drift can be caused by control plane
    or lower-level management operations that inadvertently cause
    behavior changes which conflict with intent which was orchestrated
    earlier.  Intent-Based Systems and Networks need to be able to detect
    when such drift occurs or is about to occur.
-
-
-
-
-
-
-
-
-Clemm, et al.           Expires September 2, 2020              [Page 17]
-
-Internet-Draft                                                March 2020
-
 
 6.2.3.  Intent Compliance Actions
 
@@ -995,6 +1002,14 @@ Internet-Draft                                                March 2020
    The spaces indicate the different perspectives and interactions with
    different roles that are involved in addressing the functions:
 
+
+
+
+Clemm, et al.            Expires March 19, 2021                [Page 18]
+
+Internet-Draft                                            September 2020
+
+
    o  The user space involves the functions that interface the network
       and intent-based system with the human user.  It involves the
       functions that allow users to articulate and the intent-based
@@ -1002,13 +1017,6 @@ Internet-Draft                                                March 2020
       that report back the status of the network relative to the intent
       and that allow users to assess whether their intent has the
       desired effect.
-
-
-
-Clemm, et al.           Expires September 2, 2020              [Page 18]
-
-Internet-Draft                                                March 2020
-
 
    o  The translation or Intent-Based System (IBS) space involves the
       functions that bridge the gap between intent users and network
@@ -1026,29 +1034,37 @@ Internet-Draft                                                March 2020
 
 
 
-            User Space   :       Translation / IBS        :  Network Ops
-                         :            Space               :     Space
-                         :                                :
+            User Space   :       Translation / IBS       :  Network Ops
+                         :            Space              :     Space
+                         :                               :
            +----------+  :  +----------+   +-----------+ : +-----------+
    Fulfill |recognize/|---> |translate/|-->|  learn/   |-->| configure/|
            |generate  |     |          |   |  plan/    |   | provision |
            |intent    |<--- |  refine  |   |  render   | : |           |
            +----^-----+  :  +----------+   +-----^-----+ : +-----------+
-                |        :                       |        :        |
-   .............|................................|.................|....
-                |        :                  +----+---+    :        v
-                |        :                  |validate|    : +----------+
+                |        :                       |       :        |
+   .............|................................|................|.....
+                |        :                  +----+---+   :        v
+                |        :                  |validate|   :  +----------+
                 |        :                  +----^---+ <----| monitor/ |
-   Assure   +---+---+    :  +---------+    +-----+---+    : | observe/ |
-            |report | <---- |abstract |<---| analyze | <----+----------+
-            +-------+    :  +---------+    |aggregate|    :
-                         :                 +---------+    :
+   Assure   +---+---+    :  +---------+    +-----+---+   :  | observe/ |
+            |report | <---- |abstract |<---| analyze | <----|          |
+            +-------+    :  +---------+    |aggregate|   :  +----------+
+                         :                 +---------+   :
 
 
                         Figure 1: Intent Life-cycle
 
    When carefully inspecting the diagram, it becomes apparent that the
    intent life-cycle, in fact, involves two cycles, or loops:
+
+
+
+
+Clemm, et al.            Expires March 19, 2021                [Page 19]
+
+Internet-Draft                                            September 2020
+
 
    o  The "inner" intent control loop between IBS and Network Operations
       space is completely autonomic and does not involve any human in
@@ -1057,14 +1073,6 @@ Internet-Draft                                                March 2020
       observations are fed into the function that plans the rendering of
       networking intent in order to make adjustments as needed in the
       configuration of the network.
-
-
-
-
-Clemm, et al.           Expires September 2, 2020              [Page 19]
-
-Internet-Draft                                                March 2020
-
 
    o  The "outer" intent control loop involves the user space and
       includes the user taking action and adjusting their intent based
@@ -1106,21 +1114,20 @@ Internet-Draft                                                March 2020
    This document describes concepts and definitions of Intent-based
    Networking.  As such, the below security considerations remain high
    level, i.e. in the form of principles, guidelines or requirements.
+
+
+
+Clemm, et al.            Expires March 19, 2021                [Page 20]
+
+Internet-Draft                                            September 2020
+
+
    More detailed security considerations will be described in the
    documents that specify the architecture and functionality.
 
    Security in Intent-based Networking can apply to different facets:
 
    o  Securing the intent-based system itself.
-
-
-
-
-
-Clemm, et al.           Expires September 2, 2020              [Page 20]
-
-Internet-Draft                                                March 2020
-
 
    o  Mitigating the effects of erroneous, harmful or compromised
       intents.
@@ -1163,20 +1170,20 @@ Internet-Draft                                                March 2020
 
    Expressing security policies or security-related parameters with
    intents consists in using the intent formalism (a high-level,
+
+
+
+Clemm, et al.            Expires March 19, 2021                [Page 21]
+
+Internet-Draft                                            September 2020
+
+
    declarative abstraction), or part(s) of an intent statement to define
    security-related aspects such as data governance, level(s) of
    confidentiality in data exchange, level(s) of availability of system
    resources, of protection in forwarding paths, of isolation in
    processing functions, level(s) of encryption, authorized entities for
    given operations, etc.
-
-
-
-
-Clemm, et al.           Expires September 2, 2020              [Page 21]
-
-Internet-Draft                                                March 2020
-
 
    The development and introduction of Intent-Based Networking in
    operational environments will certainly create new security concerns.
@@ -1218,21 +1225,19 @@ Internet-Draft                                                March 2020
               Mapping Yang Model", draft-ietf-teas-te-service-mapping-
               yang-04 (work in progress), July 2020.
 
+
+
+
+
+Clemm, et al.            Expires March 19, 2021                [Page 22]
+
+Internet-Draft                                            September 2020
+
+
    [Lenrow15]
               Lenrow, D., "Intent As The Common Interface to Network
               Resources, Intent Based Network Summit 2015 ONF Boulder:
               IntentNBI", February 2015.
-
-
-
-
-
-
-
-Clemm, et al.           Expires September 2, 2020              [Page 22]
-
-Internet-Draft                                                March 2020
-
 
    [RFC7575]  Behringer, M., Pritikin, M., Bjarnason, S., Clemm, A.,
               Carpenter, B., Jiang, S., and L. Ciavaglia, "Autonomic
@@ -1280,14 +1285,9 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-Clemm, et al.           Expires September 2, 2020              [Page 23]
+Clemm, et al.            Expires March 19, 2021                [Page 23]
 
-Internet-Draft                                                March 2020
+Internet-Draft                                            September 2020
 
 
    Laurent Ciavaglia
@@ -1341,4 +1341,4 @@ Internet-Draft                                                March 2020
 
 
 
-Clemm, et al.           Expires September 2, 2020              [Page 24]
+Clemm, et al.            Expires March 19, 2021                [Page 24]
