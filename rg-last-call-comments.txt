@@ -11,8 +11,8 @@
 	-I fully agree that explainability is an important IBN function, in particular from a legal/ethical viewpoint.
 	-"Policy-based management can be considered an imperative management paradigm": some policy based-management systems (such as cfEngine) seem to use a declarative style to specify their policies (but with a low/technical-level granularity), how shall we position them in comparison to intent-based management?"
 ##ACTION: 
-	re. counter-examples... not sure. why not... 
-	re. PBNM : we need to clarify in which cases an intent == declarative policy, but being careful to not equate intent is only a declarative policy.
+	re. counter-examples... we will provide a few counter-examples and highlight why they do not qualify as intents.
+	re. PBNM : acknowledged. no impact on the existing text.
 
 #Comments from MolkaG and BarbaraM
 	cf. comments in PDF file (to be uploaded on the repo)
@@ -31,5 +31,7 @@
 	In conclusion, I support this I-D and consider it ready for IRSG review, pending the minor changes suggested above.
 ##ACTION: editorial changes. 
 
+
+remove use of version of Truth
 
 
