@@ -10,7 +10,9 @@
 	-In addition to the examples, would it make sense to provide some counter-examples, of what is not an intent (if possible, beyond the notion of policies)?
 	-I fully agree that explainability is an important IBN function, in particular from a legal/ethical viewpoint.
 	-"Policy-based management can be considered an imperative management paradigm": some policy based-management systems (such as cfEngine) seem to use a declarative style to specify their policies (but with a low/technical-level granularity), how shall we position them in comparison to intent-based management?"
-##ACTION:
+##ACTION: 
+	re. counter-examples... not sure. why not... 
+	re. PBNM : we need to clarify in which cases an intent == declarative policy, but being careful to not equate intent is only a declarative policy.
 
 #Comments from MolkaG and BarbaraM
 	cf. comments in PDF file (to be uploaded on the repo)
@@ -27,7 +29,7 @@
 	Section 4.1, p. 6: The sentence starting at the bottom of the page mentions that "In an autonomic network, intent should be rendered by the network itself..." Is that true only for autonomic networks? How about other types of networks? Previously it was mentioned that "...the concept of 'Intent' is not limited to autonomic networks, but applies to any network." To be consistent, the sentence at the end of page 6 should be complemented with something related to non-autonomic networks, or just made more general.
 	Section 4.2.2, p.11: At some point the PBM acronym is used, which was never defined before. Maybe the authors intended to use PBNM instead.
 	In conclusion, I support this I-D and consider it ready for IRSG review, pending the minor changes suggested above.
-##ACTION: 
+##ACTION: editorial changes. 
 
 
 
