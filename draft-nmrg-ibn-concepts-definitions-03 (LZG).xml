@@ -64,7 +64,7 @@
 
 <author fullname="Jeff Tantsura" initials="J"
     surname="Tantsura">
-    <organization>Apstra, Inc.</organization>
+    <organization>Juniper</organization>
  	<address>
 		<email>jefftant.ietf@gmail.com</email>
 	</address>
@@ -110,7 +110,8 @@
     This vision has since caught on with the industry in a big way, leading to a significant number of solutions that offer Intent-Based Management that promise network providers to manage networks holistically at a higher level of abstraction and as a system that happens to consist of interconnected components, 
     as opposed to a set of independent devices (that happen to be interconnected).  Those offerings include IBN and IBS (offering full a life-cycle of intent), SDN controllers (offering a single point of control and administration for a network), and network management and Operations Support Systems (OSS).  
     </t>
-    <t> However, it has been recognized for a long time that comprehensive management solutions cannot operate only at the level of individual devices and low-level configurations.  In this sense, the vision of intent is not entirely new.  
+    <t> 
+    However, it has been recognized for a long time that comprehensive management solutions cannot operate only at the level of individual devices and low-level configurations.  In this sense, the vision of intent is not entirely new.  
     In the past, ITU-T's model of a Telecommunications Management Network (TMN) introduced a set of management layers that defined a management hierarchy, consisting of network element, network, service, and business management <xref target=" M3010"/>.  
     High-level operational objectives would propagate in a top-down fashion from upper to lower layers.  The associated abstraction hierarchy was crucial to decompose management complexity into separate areas of concern.  
     This abstraction hierarchy was accompanied by an information hierarchy that concerned itself at the lowest level with device-specific information, but that would, at higher layers, include, for example, end-to-end service instances.  
@@ -144,11 +145,11 @@
    a network should meet) and outcomes (that a network is supposed to
    deliver), defined in a declarative manner without specifying how to achieve or implement them.  </t>
     <t>IBA: Intent-Based Analytics - Analytics that are defined and derived from users' intent and used to validate the intended state.</t>
-    <t>Intent-Based Management - The concept of performing management based on the concept of intent </t>
+    <t>Intent-Based Management - The concept of performing management based on the concept of intent. </t>
     <t>IBN: Intent-Based Network - A network that can be managed using intent.</t>
     <t>IBS: Intent-Based System - A system that supports management functions that can be guided using intent.</t>
     <t>PBNM: Policy-Based Network Management </t>
-	<t>Policy: A set of rules that governs the choices in behavior of a system.</t>
+    <t>Policy: A set of rules that governs the choices in behavior of a system.</t>
     <t>PDP: Policy Decision Point</t>
     <t>PEP: Policy Enforcement Point</t>
     <t>Service Model: A model that represents a service that is provided by a network to a user.</t>
@@ -165,10 +166,10 @@
 
 <section title="Intent and Intent-Based Management">
 <t>
-The term intent was first introduced in the context of Autonomic Networks, where it is defined as "an abstract, high-level policy used to operate a network" <xref target= "RFC7575"/>.  According to this definition, an intent is a specific type of policy provided by a user to provide guidance to the Autonomic Network that would otherwise operate without human intervention. However, to avoid using intent simply as a synonym for policy, a distinction needs to be introduced that differentiates intent clearly from other types of policies.  
+The term intent was first introduced in the context of Autonomic Networks, where it is defined as "an abstract, high-level policy used to operate a network" <xref target= "RFC7575"/>.  According to this definition, an intent is a specific type of policy provided by a user to provide guidance to the Autonomic Network that would otherwise operate without human intervention. However, to avoid using intent simply as a synonym for policy, a distinction that differentiates intent clearly from other types of policies needs to be introduced.  
 </t>
 <t>
-Intent-Based Management aims to lead towards networks that are dramatically simpler to manage and operate, requiring only minimal outside intervention.  Networks, even when they are considered autonomic, are not clairvoyant and have no way of automatically knowing particular operational goals 
+Intent-Based Management aims to lead towards networks that are fundamentally simpler to manage and operate, requiring only minimal outside intervention.  Networks, even when they are considered autonomic, are not clairvoyant and have no way of automatically knowing particular operational goals 
 nor what instances of networking services to support.  In other words, they do not know what the intent of the network provider is that gives the network the purpose of its being.  This still needs to be communicated by what informally constitutes intent. That being said, the concept of intent is not limited just to autonomic networks, such as networks that feature an Autonomic Control Plane <xref target=" I-D.ietf-anima-autonomic-control-plane"/>, but applies to any network.  
 </t>
 <t> 
@@ -191,7 +192,7 @@ nor what instances of networking services to support.  In other words, they do n
  <t>
  In contrast, the following are examples of what would not constitute intent (again, expressed in natural language for the sake of clarity):
  <list style="symbols">
- <t> "Configure a given interface with an IP address." This would be considered device configuration and fiddling with configuration knobs, not intent.</t>
+ <t> "Configure a given interface with an IP address." This would be considered device configuration and fiddling with configuration knobs, not intent. Pointing to a resourse that could potentially serve as the resource pool for providing IP addresses and/or similar network artifacts that could be used for conifguration would still be a part of intent.</t>
  <t> "When interface utilization exceeds a specific threshold, emit an alert." This would be a rule that can help support network automation, but a simple rule is not an intent.  </t>
  <t> "Configure a VPN with a tunnel from A to B over path P." This would be considered as a configuration of a service.</t>
  <t> "Deny traffic to prefix P1 unless it is traffic from prefix P2." This would be an example of an access policy or a firewall rule, not  intent. </t> 
@@ -201,7 +202,7 @@ nor what instances of networking services to support.  In other words, they do n
  In an autonomic network, intent should be rendered by the network itself, i.e., translated into device-specific rules and courses of action.  Ideally, it should not even be orchestrated or broken down by a higher-level, centralized system but by the network devices themselves using a combination of distributed algorithms and local device abstraction.  In this idealized vision, because intent holds for the network as a whole, intent should ideally be automatically disseminated across all devices in the network, which can themselves decide whether they need to act on it.  
  </t>
  <t>
-  However, such decentralization will not be practical in all cases.  Certain functions will need to be at least conceptually centralized.  For example, users may require a single conceptual point of interaction with the network.  Likewise, the vast majority of network devices may be intent-agnostic and focus only (for example) on the actual forwarding of packets.  This implies that certain intent functionality needs to be provided by functions that are specialized for that purpose (which, depending on the scenario, may be hosted on dedicated systems or cohosted with other networking functions).  For example, functionality to translate intent into courses of actions and algorithms to achieve desired outcomes may need to be provided by such specialized functions.  Of course, to avoid single points of failure, the implementation and hosting of those functions may still be distributed, even if conceptually centralized.
+  However, such decentralization will not be practical in all cases.  Certain functions will need to be at least conceptually centralized.  For example, users may require a single conceptual point of interaction with the network.  Likewise, the vast majority of network devices may be intent-agnostic and focus only (for example) on the actual forwarding of packets.  This implies that certain intent functionality needs to be provided by functions that are specialized for that purpose (which, depending on the scenario, may be hosted on dedicated systems or co-hosted with other networking functions).  For example, functionality to translate intent into courses of actions and algorithms to achieve desired outcomes may need to be provided by such specialized functions.  Of course, to avoid single points of failure, the implementation and hosting of those functions may still be distributed, even if conceptually centralized.
  </t>
  <t>
 Accordingly, an IBN is a network that can be managed using intent.  This means that it is able to recognize and ingest intent of an operator or user and configure and adapt itself autonomously according to the user intent, achieving an intended outcome (i.e., a desired state or behavior) without requiring the user to specify the detailed technical steps for how to achieve the outcome. Instead, the IBN will be able to figure out on its own how to achieve the outcome. 
@@ -216,36 +217,35 @@ Other definitions of intent exist, such as <xref target="TR523"/>.  Intent there
 
 <section title="Service Models">
 <t>
-A service model is a model that represents a service that is provided by a network to a user. Per <xref target=" RFC8309"/>, a service model describes a service and its parameters in a
-      portable/implementation-agnostic way that can be used independently of the equipment and operating environment on which the service is realized. Two subcategories are distinguished: a "Customer Service Model" describes an instance of a service as provided to a customer, possibly associated with a service order.  A "Service Delivery Model" describes how a service is instantiated over existing networking infrastructure.  
+A service model is a model that represents a service that is provided by a network to a user. Per <xref target=" RFC8309"/>, a service model describes a service and its parameters in a portable/implementation-agnostic way that can be used independently of the equipment and operating environment on which the service is realized. Two subcategories are distinguished: a "Customer Service Model" describes an instance of a service as provided to a customer, possibly associated with a service order.  A "Service Delivery Model" describes how a service is instantiated over existing networking infrastructure.  
       </t>
       <t>
-       An example of a service could be a Layer 3 VPN service <xref target="RFC8299"/>, a Network Slice, or residential Internet access.  
+       An example of a service could be a Layer 3 VPN service <xref target="RFC8299"/>, a Network Slice <xref target=" I-D.ietf-teas-ietf-network-slice-definition"/>, or residential Internet access.  
        Service models represent service instances as entities in their own right. 
        Services have their own parameters, actions, and life-cycles.  
-       Typically, service instances can be bound to end-users, who might be billed for the service.  
+       Typically, service instances can be bound to end-users, who might be billed for the services provided.  
 </t>
 <t>
 Instantiating a service typically involves multiple aspects:  
 <list style="symbols">
   <t>A user (or northbound system) needs to define and/or request a service to be instantiated.</t>
-  <t>Resources need to be allocated, such as IP addresses, AS numbers, VLAN or VxLAN pools, interfaces, bandwidth, or memory.</t>
+  <t>Resources, such as IP addresses, AS numbers, VLAN or VxLAN pools, interfaces, bandwidth, or memory need to be allocated.</t>
   <t>How to map services to the resources needs to be defined.  Multiple mappings are often possible, 
   which to select may depend on context (such as which type of access is available to connect the end-user with the service). </t> 
-  <t>Bindings need to be maintained between upper and lower-level objects. </t>
-  <t>Once instantiated, the service needs to be validated and assured to ensure that the network indeed delivers the service as requested.</t>
+  <t>Bindings between upper and lower-level objects need to be maintained. </t>
+  <t>Once instantiated, the service operational state needs to be validated and assured to ensure that the network indeed delivers the service as requested.</t>
 </list> 
 </t>
 <t> 
 They involve a system, such as a controller, that provides provisioning logic.  This includes breaking down high-level abstractions into lower-level device abstractions, identifying and allocating system resources, and orchestrating individual provisioning steps.  
-Orchestration operations are generally conducted using a "push" model in which the controller/manager initiates the operations as required, then pushes down the specific configurations to the device. In addition to instantiating and creating new instances of a service, updating, modifying, and decommissioning services need to be also supported. 
+Orchestration operations are generally conducted using a "push" model in which the controller/manager initiates the operations as required, then pushes down the specific configurations to the device and validates whether the new changes have been accepted and the new operational/derived states are achieved and in sync with the intent/desired state. In addition to instantiating and creating new instances of a service, updating, modifying, and decommissioning services need to be also supported. 
 The device itself typically remains agnostic to the service or the fact that its resources or configurations are part of a service/concept at a higher layer.  
 </t>
 <t>
 Instantiated service models map to instantiated lower-layer network and device models.  Examples include instances of paths or instances of specific port configurations.  
 The service model typically also models dependencies and layering of services over lower-layer networking resources that are used to provide services.  
 This facilitates management by allowing to follow dependencies for troubleshooting activities, to perform impact analysis in which events in the network are assessed regarding their impact on services and customers.  
-Services are typically orchestrated and provisioned top-to-bottom, which also facilitates keeping track of the assignment of network resources.  
+Services are typically orchestrated and provisioned top-to-bottom, which also facilitates keeping track of the assignment of network resources (composition), while troubleshooted bottom-up (decomposition).  
 Service models might also be associated with other data that does not concern the network but provides business context.  
 This includes things such as customer data (such as billing information), service orders and service catalogs, tariffs, service contracts, and Service Level Agreements (SLAs), including contractual agreements regarding remediation actions. 
 </t>
@@ -267,8 +267,7 @@ The interested reader is asked to refer to the rich set of existing literature, 
 <t>
 At the heart of policy-based management is the concept of a policy.  Multiple definitions of policy exist: "Policies are rules governing the choices in the behavior of a system" <xref target=" Sloman94"/>.  
 "Policy is a set of rules that are used to manage and control the changing and/or maintaining of the state of one or more managed objects" <xref target=" Strassner03"/>.  Common to most definitions is the definition of a policy as a "rule."  
-Typically, the definition of a rule consists of an event (whose occurrence triggers a rule), a set of conditions (which get assessed and which must be true before any actions are actually "fired"), 
-and, finally, a set of one or more actions that are carried out when the condition holds. 
+Typically, the definition of a rule consists of an event (whose occurrence triggers a rule), a set of conditions (which get assessed and which must be true before any actions are actually "fired"), and, finally, a set of one or more actions that are carried out when the condition holds. 
 </t>
 <t>
 Policy-based management can be considered an imperative management paradigm: Policies precisely specified what needs to be done when and in which circumstance.  By using policies, management can, in effect, be defined as a set of simple control loops.  
@@ -286,8 +285,7 @@ This enables operational scale and allows network operators and authors of polic
 <t>
  PBNM is typically "push-based": Policies are pushed onto devices where they are rendered and enforced.  The push operations are conducted by a manager or controller, which is responsible for deploying policies across the network and monitor their proper operation.  
  That being said, other policy architectures are possible.  For example, policy-based management can also include a pull-component in which the decision regarding which action to take is delegated to a so-called Policy Decision Point (PDP).  
- This PDP can reside outside the managed device itself and has typically global visibility and context with which to make policy decisions.  Whenever a network device observes an event that is associated with a policy but lacks the full definition of the policy or the ability to reach a conclusion regarding the expected action, 
- it reaches out to the PDP for a decision (reached, for example, by deciding on an action based on various conditions).  
+ This PDP can reside outside the managed device itself and has typically global visibility and context with which to make policy decisions.  Whenever a network device observes an event that is associated with a policy but lacks the full definition of the policy or the ability to reach a conclusion regarding the expected action, it reaches out to the PDP for a decision (reached, for example, by deciding on an action based on various conditions).  
  Subsequently, the device carries out the decision as returned by the PDP - the device "enforces" the policy and hence acts as a PEP (Policy Enforcement Point).  Either way, PBNM architectures typically involve a central component from which policies are deployed across the network and/or policy decisions served.    
 </t>
 <t>
@@ -311,9 +309,9 @@ Instantiating a service model requires orchestration by a system; the logic for 
 <t> Policy is a set of rules, typically modeled around a variation of events/conditions/actions, used to express simple control loops that can be rendered by devices without requiring intervention by the outside system.  
 Policies let users define what to do under what circumstances, but they do not specify the desired outcome.  
 </t>
-<t>Intent is a high-level, declarative goal that operates at the level of a network and services it provides, not individual devices.  It is used to define outcomes and high-level operational goals, without specifying how those outcomes and should be achieved or how goals should specifically be satisfied, and without the need to enumerate specific events, conditions, and actions.  
+<t>Intent is a high-level, declarative goal that operates at the level of a network and services it provides, not individual devices.  It is used to define outcomes and high-level operational goals, without specifying how those outcomes should be achieved or how goals should specifically be satisfied, and without the need to enumerate specific events, conditions, and actions.  
 Which algorithm or rules to apply can be automatically "learned/derived from intent" by the intent system.  
-    In the context of autonomic networking, intent is ideally rendered by the network itself; also, the dissemination of intent across the network and any required coordination between nodes is resolved by the network without the need for external systems.
+In the context of autonomic networking, intent is ideally rendered by the network itself; also, the dissemination of intent across the network and any required coordination between nodes is resolved by the network without the need for external systems.
 </t>
 </list>
 </t>
@@ -334,8 +332,8 @@ The following main operating principles allow characterizing the intent-based/-d
 <t><list style="numbers">
 <t> Single Source of Truth (SSoT) and Single Version/View of Truth (SVoT). 
 The SSoT is an essential component of an intent-based system as it enables several important operations. The set of validated intent expressions is the system's SSoT. 
-SSoT and the records of the operational states enable comparing the intended state and actual state of the system and determining drift between them.
-SSoT and the drift information provide the basis for corrective actions. If the intent-based is equipped with prediction capabilities or means, it can further develop strategies to anticipate, plan, and pro-actively act on the diverging trends with the aim to minimize their impact.
+SSoT and the records of the operational states enable comparing the intended/desired state and actual/operational states of the system and determining drift between them.
+SSoT and the drift information provide the basis for corrective actions. If the intent-based system is equipped with prediction capabilities or means, it can further develop strategies to anticipate, plan, and pro-actively act on the diverging trends with the aim to minimize their impact.
 Beyond providing a means for consistent system operation, SSoT also allows for better traceability to validate if/how the initial intent and associated business goals have been properly met, to evaluate the impacts of changes in the intent parameters and impacts and effects of the events occurring in the system. 
 <vspace/>
 Single Version (or View) of Truth derives from the SSoT and can be used to perform other operations such as query, poll, or filter the measured and correlated information to create so-called "views." These views can serve the operators and/or the users of the intent-based system. 
@@ -352,8 +350,7 @@ In addition, the Intent-Based System will need to moderate between conflicting i
 
 <t> Autonomy and Supervision.
 A desirable goal for an intent-based system is to offer a high degree of flexibility and freedom on both the user side and system side, e.g., by giving the user the ability to express intents using its own terms, by supporting different forms of expression of intents and being capable of refining the intent expressions to well-formed and exploitable expressions.
-The dual principle of autonomy and supervision allows operating a system that will have the necessary levels of autonomy to conduct its tasks and operations without requiring the intervention of the user and taking its own decisions (within its areas of concern and span of control) as how to perform and meet the user expectations in terms of performance and quality, 
-while at the same time providing the proper level of supervision to satisfy the user requirements for reporting and escalation of relevant information.
+The dual principle of autonomy and supervision allows operating a system that will have the necessary levels of autonomy to conduct its tasks and operations without requiring the intervention of the user and taking its own decisions (within its areas of concern and span of control) as how to perform and meet the user expectations in terms of performance and quality, while at the same time providing the proper level of supervision to satisfy the user requirements for reporting and escalation of relevant information.
 </t>
 
 <t> Learning. An intent-based system is a learning system.
@@ -367,7 +364,7 @@ Cope with unawareness of users (smart recommendations).
 <t> Capability exposure. Capability exposure consists in the need for expressive network capabilities, requirements, and constraints to be able to compose/decompose intents and map the user's expectations to the system capabilities. 
 </t>
 
-<t>Abstract and outcome-driven.  Users do not need to be concerned with how intent is achieved  and are empowered to think in terms of outcomes.  In addition, they do can refer to concepts at a higher level of abstractions, independent e.g. of vendor-specific renderings.  
+<t>Abstract and outcome-driven.  Users do not need to be concerned with how intent is achieved  and are empowered to think in terms of outcomes.  In addition, they can refer to concepts at a higher level of abstractions, independent e.g. of vendor-specific renderings.  
 </t>
 </list>
 </t>
@@ -379,7 +376,7 @@ Intent targets are not individual devices but typically aggregations (such as gr
 </t>
 <t>Abstraction and inherent virtualization: agnostic to implementation details</t>
 <t>Human-tailored network interaction: IBN SHOULD speak the language of the user as opposed to requiring the user to speak the language of the device/network</t>
-<t>Explainability as an important IBN function, detection and IBN-aided resolution of conflicting intent, reconciliation of what the user wants and what the network can actually do </t>
+<t>Explainability as an important IBN function, detection and IBN-aided resolution of conflicting intent, reconciliation of what the user wants and what the network can actually do. </t>
 <t>Inherent support, verification, and assurance of trust</t>   
 </list>
 </t> 
@@ -406,10 +403,10 @@ The following sections provide a more comprehensive overview of those functions.
 </t>
 <section title="Intent Ingestion and Interaction with Users">
 <t>
-The first set of functions is concerned with "ingesting" intent, i.e., obtaining intent through interactions with users.  They provide functions that recognize intent from interaction with the user as well as functions that allow users to refine their intent and articulate it in such ways so that it becomes actionable by an Intent-Based System.  Typically, those functions go beyond those provided by a traditional API, although APIs may still be provided (and needed for interactions beyond human users, i.e., with other machines).  
+The first set of functions is concerned with "ingesting" intent, i.e., obtaining intent through interactions with users.  They provide functions that recognize intent from interaction with the user as well as functions that allow users to refine their intent and articulate it in such ways so that it becomes actionable by an Intent-Based System.  Typically, those functions go beyond those provided by a traditional API, although APIs may still be provided (and needed for interactions beyond human users, i.e., with other machines). Typically, there also would have a set of intuitive, easy to navigate workflows that would guide the user throughout intent consumption phase, also making sure that all the data nessesary for intent modeling and consecutive translation has been gathered.
 They may support unconventional human-machine interactions, in which a human will not simply give simple commands but which may involve a human-machine dialog to provide clarifications, to explain ramifications and trade-offs, and to facilitate refinements. 
 </t>
-<t>The goal is ultimately to make Intent-Based Systems as easy and natural to use and interact with as possible, in particular allowing human users to interact with the IBS in ways that do not involve a steep learning curve that forces the user to learn the "language" of the system. Ideally, it will the Intent-Based Systems that should increasingly be able to learn how to understand the user as opposed to the other way round.  Of course, further research will be required to make this a reality. 
+<t>The goal is ultimately to make Intent-Based Systems as easy and natural to use and interact with as possible, in particular allowing human users to interact with the IBS in ways that do not involve a steep learning curve that forces the user to learn the "language" of the system. Ideally, it will be the Intent-Based Systems that should increasingly be able to learn how to understand the user as opposed to the other way round.  Of course, further research will be required to make this a reality. 
 </t>
 </section>
 <section title="Intent Translation">
@@ -437,11 +434,11 @@ A first set of assurance functions monitors and observes the network and its exh
 </section>
 <section title="Intent Compliance Assessment">
 <t>
-At the core of Intent Assurance are functions that compare the actual network behavior that is being monitored and observed with the intended behavior that is expected per the intent.  These functions continuously assess and validate whether the observation indicates compliance with intent.  
+At the core of Intent Assurance are functions that compare the actual network behavior that is being monitored and observed with the intended behavior that is expected per the intent and is held by SSoT.  These functions continuously assess and validate whether the observation indicates compliance with intent.  
 This includes assessing the effectiveness of intent fulfillment actions, including verifying that the actions had the desired effect and assessing the magnitude of the effect as applicable.  It can also include functions that perform analysis and aggregation of raw observation data. The results of the assessment can be fed back to facilitate learning functions that optimize outcomes.  
 </t>
 <t>
-Intent compliance assessment also includes assessing whether intent drift occurs over time.  Intent drift can be caused by a control plane or lower-level management operations that inadvertently cause behavior changes which conflict with intent that was orchestrated earlier.  Intent-Based Systems and Networks need to be able to detect when such drift occurs or is about to occur.  
+Intent compliance assessment also includes assessing whether intent drift occurs over time.  Intent drift can be caused by a control plane or lower-level management operations that inadvertently cause behavior changes which conflict with intent that was orchestrated earlier.  Intent-Based Systems and Networks need to be able to detect when such drift occurs or is about to occur as well as assess the severity of the drift.  
 </t>
 </section>
 <section title="Intent Compliance Actions">
@@ -544,8 +541,8 @@ in a separate document.
 	
 
 <section title="Security Considerations">
-<t>This document describes concepts and definitions of Intent-based Networking. As such, the below security considerations remain high level, i.e. in the form of principles, guidelines or requirements. More detailed security considerations will be described in the documents that specify the architecture and functionality.</t>
-<t>Security in Intent-based Networking can apply to different facets: 
+<t>This document describes concepts and definitions of Intent-Based Networking. As such, the below security considerations remain high level, i.e. in the form of principles, guidelines or requirements. More detailed security considerations will be described in the documents that specify the architecture and functionality.</t>
+<t>Security in Intent-Based Networking can apply to different facets: 
 <list style="symbols">
   <t>Securing the intent-based system itself.</t>
   <t>Mitigating the effects of erroneous, harmful or compromised intents.</t>
@@ -584,6 +581,8 @@ We would like to thank the members of the IRTF Network Management Research Group
 	  	<?rfc include="reference.RFC.8345"?>		
         <?rfc include="reference.I-D.ietf-teas-te-service-mapping-yang"?>
         <?rfc include="reference.I-D.ietf-anima-autonomic-control-plane"?>
+	<?rfc include="reference.I-D.ietf-teas-ietf-network-slice-definition"?>
+		
         
 
     <reference anchor="M3010">
