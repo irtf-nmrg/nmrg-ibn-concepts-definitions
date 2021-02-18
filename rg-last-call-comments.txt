@@ -1,0 +1,37 @@
+#Support received from Jerome, Walter, Remi, Chen Li, Csaba, Peter, Stephen, Molka, Barbara, Luis, Olga, Marinos, Jeferson, Haoyu
+##ACTION: thank in acknowledgments (in addition to other reviews, comments and support expressed previously)
+	
+#Comments from JeromeF
+	cf. comments in TXT file (to be uploaded on the repo)
+##ACTION:
+
+#Comments from RemiB
+	"Very interesting and instructive draft on intent-based management. Some minor comments:
+	-In addition to the examples, would it make sense to provide some counter-examples, of what is not an intent (if possible, beyond the notion of policies)?
+	-I fully agree that explainability is an important IBN function, in particular from a legal/ethical viewpoint.
+	-"Policy-based management can be considered an imperative management paradigm": some policy based-management systems (such as cfEngine) seem to use a declarative style to specify their policies (but with a low/technical-level granularity), how shall we position them in comparison to intent-based management?"
+##ACTION: 
+	re. counter-examples... we will provide a few counter-examples and highlight why they do not qualify as intents.
+	re. PBNM : acknowledged. no impact on the existing text.
+
+#Comments from MolkaG and BarbaraM
+	cf. comments in PDF file (to be uploaded on the repo)
+##ACTION:
+
+#Comments from PeterS, CsabaV and StephenM
+	cf. comments in PDF file (to be uploaded on the repo)
+##ACTION:
+
+#Comments from WalterC
+	I found this I-D very interesting and definitely useful to shed some light on the concepts of intent and related system functionality. I especially liked the discussion about the distinction between intent, policy, and service models, which are very often confused and misinterpreted. Also, the proposed definition of IBN functionality and intent life-cycle were very useful in the context of my own research activity on IBN.
+	Here's a couple of minor suggestions for improvement:
+	Section 1, p. 3: The sentence starting with "Adaptability to changes at scale is a fundamental property of a well-designed IBN system,..." seems to assume that the general concepts of "IBN system" and "intent" are already known to the reader. But those very same concepts are introduced later on in the draft. Maybe that sentence could be rephrased and made more general, not mentioning IBN and intents yet.
+	Section 4.1, p. 6: The sentence starting at the bottom of the page mentions that "In an autonomic network, intent should be rendered by the network itself..." Is that true only for autonomic networks? How about other types of networks? Previously it was mentioned that "...the concept of 'Intent' is not limited to autonomic networks, but applies to any network." To be consistent, the sentence at the end of page 6 should be complemented with something related to non-autonomic networks, or just made more general.
+	Section 4.2.2, p.11: At some point the PBM acronym is used, which was never defined before. Maybe the authors intended to use PBNM instead.
+	In conclusion, I support this I-D and consider it ready for IRSG review, pending the minor changes suggested above.
+##ACTION: editorial changes. 
+
+
+remove use of version of Truth
+
+
