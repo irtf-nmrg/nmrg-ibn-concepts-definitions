@@ -1,6 +1,6 @@
 #Support received from Jerome, Walter, Remi, Chen Li, Csaba, Peter, Stephen, Molka, Barbara, Luis, Olga, Marinos, Jeferson, Haoyu
 ##ACTION: thank in acknowledgments (in addition to other reviews, comments and support expressed previously)
-	
+
 #Comments from JeromeF
 	cf. comments in TXT file (to be uploaded on the repo)
 ##ACTION:
@@ -10,7 +10,7 @@
 	-In addition to the examples, would it make sense to provide some counter-examples, of what is not an intent (if possible, beyond the notion of policies)?
 	-I fully agree that explainability is an important IBN function, in particular from a legal/ethical viewpoint.
 	-"Policy-based management can be considered an imperative management paradigm": some policy based-management systems (such as cfEngine) seem to use a declarative style to specify their policies (but with a low/technical-level granularity), how shall we position them in comparison to intent-based management?"
-##ACTION: 
+##ACTION:
 	re. counter-examples... we will provide a few counter-examples and highlight why they do not qualify as intents.
 	re. PBNM : acknowledged. no impact on the existing text.
 
@@ -29,9 +29,7 @@
 	Section 4.1, p. 6: The sentence starting at the bottom of the page mentions that "In an autonomic network, intent should be rendered by the network itself..." Is that true only for autonomic networks? How about other types of networks? Previously it was mentioned that "...the concept of 'Intent' is not limited to autonomic networks, but applies to any network." To be consistent, the sentence at the end of page 6 should be complemented with something related to non-autonomic networks, or just made more general.
 	Section 4.2.2, p.11: At some point the PBM acronym is used, which was never defined before. Maybe the authors intended to use PBNM instead.
 	In conclusion, I support this I-D and consider it ready for IRSG review, pending the minor changes suggested above.
-##ACTION: editorial changes. 
+##ACTION: editorial changes.
 
 
 remove use of version of Truth
-
-
